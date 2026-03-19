@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cs53asnujluht"]
+
+[ext_resource type="Script" uid="uid://c25kpch651ei2" path="res://Scripts/control.gd" id="1_sjmnu"]
+[ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="2_cgmvo"]
+
+[node name="Control" type="Control" unique_id=1267235062]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sjmnu")
+
+[node name="TimeLabel" type="Label" parent="." unique_id=1914531189]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 13.3
+anchor_top = 11.537001
+anchor_right = 14.275001
+anchor_bottom = 11.825001
+offset_top = -11.4800415
+offset_bottom = -3.0517578e-05
+theme_override_fonts/font = ExtResource("2_cgmvo")
+theme_override_font_sizes/font_size = 30
+
+[node name="WeekLabel" type="Label" parent="." unique_id=1678736029]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 392.0
+offset_right = 565.0
+offset_bottom = 415.0
+theme_override_fonts/font = ExtResource("2_cgmvo")
+theme_override_font_sizes/font_size = 30

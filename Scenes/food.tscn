@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://6p8slw5vbquq"]
+
+[ext_resource type="Script" uid="uid://cy0pkhs32m0ih" path="res://Scripts/food.gd" id="1_fhto3"]
+[ext_resource type="Texture2D" uid="uid://dthds643hw17j" path="res://Assets/food.png" id="1_j4qko"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pohk7"]
+atlas = ExtResource("1_j4qko")
+region = Rect2(0, 0, 2048, 2048)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q6vj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pohk7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhto3"]
+size = Vector2(201, 192)
+
+[node name="food" type="CharacterBody2D" unique_id=1249643252]
+script = ExtResource("1_fhto3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1237864927]
+position = Vector2(439.25, 196.59921)
+scale = Vector2(0.10229492, 0.095800005)
+sprite_frames = SubResource("SpriteFrames_q6vj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=316067269]
+position = Vector2(435.5, 197)
+shape = SubResource("RectangleShape2D_fhto3")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,14 @@
+# Godot 4+
+.godot/
+.import/
+.export/
+
+# 导出配置
+export_presets.cfg
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/

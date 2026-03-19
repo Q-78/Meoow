@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://v6cj0v5fdvix"]
+
+[ext_resource type="Script" uid="uid://btciho027jr8k" path="res://Scripts/playground.gd" id="1_qyfof"]
+[ext_resource type="Texture2D" uid="uid://bpohueg07vhk6" path="res://Assets/Background/温馨暖色调操场像素画.png" id="1_uof5o"]
+[ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="2_6xle2"]
+[ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="3_u4ce8"]
+[ext_resource type="PackedScene" uid="uid://6p8slw5vbquq" path="res://Scenes/food.tscn" id="5_3e07v"]
+[ext_resource type="PackedScene" uid="uid://cs53asnujluht" path="res://Scenes/control.tscn" id="6_vl51c"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6xle2"]
+distance = -546.0
+
+[node name="playground" type="Node2D" unique_id=36153564 node_paths=PackedStringArray("intimacy_label")]
+script = ExtResource("1_qyfof")
+intimacy_label = NodePath("CanvasLayer/Label")
+
+[node name="background" type="Sprite2D" parent="." unique_id=1727286414]
+position = Vector2(-8, -546)
+texture = ExtResource("1_uof5o")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=61084338]
+position = Vector2(-8, 137)
+zoom = Vector2(0.795, 0.795)
+
+[node name="cat001" parent="." unique_id=362636703 instance=ExtResource("2_6xle2")]
+position = Vector2(171, 137)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1904280510]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=652386042]
+scale = Vector2(9.410997, 1)
+shape = SubResource("WorldBoundaryShape2D_6xle2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=520370943]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=686735500]
+offset_left = 89.0
+offset_top = 85.0
+offset_right = 170.0
+offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("3_u4ce8")
+theme_override_font_sizes/font_size = 30
+text = "intimacy:0"
+
+[node name="food" parent="." unique_id=1249643252 instance=ExtResource("5_3e07v")]
+position = Vector2(-677, 138)
+
+[node name="Control" parent="." unique_id=1267235062 instance=ExtResource("6_vl51c")]
