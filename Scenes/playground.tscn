@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="3_u4ce8"]
 [ext_resource type="PackedScene" uid="uid://6p8slw5vbquq" path="res://Scenes/food.tscn" id="5_3e07v"]
 [ext_resource type="PackedScene" uid="uid://cs53asnujluht" path="res://Scenes/control.tscn" id="6_vl51c"]
+[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="7_opmy1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6xle2"]
 distance = -546.0
@@ -46,3 +47,12 @@ text = "intimacy:0"
 position = Vector2(-677, 138)
 
 [node name="Control" parent="." unique_id=1267235062 instance=ExtResource("6_vl51c")]
+
+[node name="tocafe" type="Button" parent="." unique_id=543565815]
+offset_left = -584.0
+offset_top = 428.0
+offset_right = -320.0
+offset_bottom = 505.0
+icon = ExtResource("7_opmy1")
+
+[connection signal="pressed" from="tocafe" to="." method="_on_tocafe_pressed"]

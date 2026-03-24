@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b0j1ktcr1bcac"]
+
+[ext_resource type="Texture2D" uid="uid://cut31qxmn30kh" path="res://Assets/Background/咖啡馆.png" id="1_380lw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le2w7"]
+atlas = ExtResource("1_380lw")
+region = Rect2(0, 0, 1536, 2730)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77aku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le2w7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="cafe" type="Node2D" unique_id=1025844505]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1539910536]
+sprite_frames = SubResource("SpriteFrames_77aku")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=533821934]
