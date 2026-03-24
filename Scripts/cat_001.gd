@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var move_speed : float = 50
 @export var animator : AnimatedSprite2D
 
+@export var hand_scene : PackedScene
+@export var heart_scene : PackedScene
+
 enum State {
 	IDLE,
 	WALK,
@@ -82,6 +85,12 @@ func decide_next_state():
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		print("玩家角色被点击！")
+		
+		# ⭐ 新增：生成特效
+		spawn_hand(get_global_mouse_position())
+		spawn_heart()
+		#spawn_hand(event.position)
+		
 		GameManager.intimacy += 1
 		$AudioStreamPlayer.play()
 		print(GameManager.intimacy)
@@ -91,3 +100,13 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		animator.play("picked")
 		await get_tree().create_timer(1).timeout
 		animator.play("sit")
+		
+func spawn_hand(pos: Vector2):
+	var hand = hand_scene.instantiate()
+	get_tree().current_scene.add_child(hand)
+	hand.global_position = pos
+
+func spawn_heart():
+	var heart = heart_scene.instantiate()
+	get_tree().current_scene.add_child(heart)
+	heart.global_position = $HeartPos.global_position

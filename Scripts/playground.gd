@@ -9,3 +9,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	intimacy_label.text = "intimacy:" + str(GameManager.intimacy)
+
+
+
+
+func _on_tocafe_pressed() -> void:
+	print("shop")
+	get_tree().change_scene_to_file("res://Scenes/cafe.tscn")
