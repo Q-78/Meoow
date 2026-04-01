@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bbpgn05bp6x3w"]
+
+[ext_resource type="Script" uid="uid://ixgn61hta1ug" path="res://Scripts/dasha_river.gd" id="1_cxar7"]
+[ext_resource type="Texture2D" uid="uid://c0dn8hu7j67c4" path="res://Assets/Background/微信图片_20260324121355_1001_2891.jpg" id="1_gb5ch"]
+[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="2_4ar4n"]
+[ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="4_hxtlg"]
+
+[node name="Dasha_River" type="Node2D" unique_id=1827151699]
+script = ExtResource("1_cxar7")
+
+[node name="Dasha_River" type="Sprite2D" parent="." unique_id=576743431]
+position = Vector2(360, 638)
+scale = Vector2(0.56054693, 0.56054693)
+texture = ExtResource("1_gb5ch")
+
+[node name="to_map" type="Button" parent="." unique_id=304929040]
+offset_left = 17.0
+offset_top = 1186.0
+offset_right = 281.0
+offset_bottom = 1263.0
+icon = ExtResource("2_4ar4n")
+
+[node name="cat001" parent="." unique_id=362636703 instance=ExtResource("4_hxtlg")]
+position = Vector2(49, 896)
+scale = Vector2(0.3, 0.3)
+
+[connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Meoow"
-run/main_scene="uid://v6cj0v5fdvix"
+run/main_scene="uid://dw47w0tenlaj5"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -21,6 +21,8 @@ GameManager="*uid://bhlmenant76i5"
 
 [display]
 
+window/size/viewport_width=720
+window/size/viewport_height=1280
 window/stretch/mode="canvas_items"
 
 [physics]

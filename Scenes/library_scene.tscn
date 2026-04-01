@@ -1,0 +1,144 @@
+[gd_scene format=3 uid="uid://j82vjc2ev64k"]
+
+[ext_resource type="Texture2D" uid="uid://bycnh4gcxm58s" path="res://Assets/Background/Library.jpg" id="1_qoy0t"]
+[ext_resource type="Script" uid="uid://drpiycea5woo4" path="res://Scripts/library_scene.gd" id="1_ydier"]
+[ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="2_061c0"]
+[ext_resource type="Texture2D" uid="uid://kdlqsomidlmx" path="res://Assets/物品素材/Pomodoro.png" id="3_hkdju"]
+[ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="4_1btlx"]
+[ext_resource type="Script" uid="uid://kkfb0fc05brb" path="res://Scripts/pomodor.gd" id="4_j7iyf"]
+[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="7_kbtmi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ydier"]
+radius = 53.037724
+
+[node name="LibraryScene" type="Node2D" unique_id=1601675103]
+script = ExtResource("1_ydier")
+
+[node name="library" type="Sprite2D" parent="." unique_id=1745430330]
+position = Vector2(-2.4999924, -3.2198868)
+scale = Vector2(0.5570313, 0.55703133)
+texture = ExtResource("1_qoy0t")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=932444930]
+
+[node name="cat001" parent="." unique_id=362636703 instance=ExtResource("2_061c0")]
+position = Vector2(95, 188)
+scale = Vector2(0.3, 0.3)
+
+[node name="PomodoroUI" type="Control" parent="." unique_id=1091361726]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -366.0
+offset_top = -652.0
+offset_right = -366.0
+offset_bottom = -652.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_j7iyf")
+
+[node name="TimeLabel" type="Label" parent="PomodoroUI" unique_id=279460329]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.63900006
+anchor_bottom = 0.39100003
+offset_left = 355.0
+offset_top = 696.0
+offset_right = 510.0
+offset_bottom = 766.0
+theme_override_fonts/font = ExtResource("4_1btlx")
+theme_override_font_sizes/font_size = 70
+text = "25:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="PomodoroUI" unique_id=1599965752]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 782.0
+offset_right = 521.0
+offset_bottom = 841.0
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PopupPanel" type="Control" parent="PomodoroUI" unique_id=110346233]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="PomodoroUI/PopupPanel" unique_id=1436758713]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.9270003
+anchor_bottom = 5.492
+offset_left = 297.0
+offset_top = 963.0
+offset_right = 434.91998
+offset_bottom = 1044.32
+
+[node name="MinuteInput" type="SpinBox" parent="PomodoroUI/PopupPanel" unique_id=1587556899]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 981.0
+offset_right = 177.5
+offset_bottom = 1025.0
+min_value = 1.0
+max_value = 90.0
+value = 25.0
+
+[node name="StartButton" type="Button" parent="PomodoroUI/PopupPanel" unique_id=2062251581]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 984.0
+offset_right = 259.0
+offset_bottom = 1022.0
+theme_override_fonts/font = ExtResource("4_1btlx")
+theme_override_font_sizes/font_size = 30
+text = "开始"
+
+[node name="PauseButton" type="Button" parent="PomodoroUI/PopupPanel" unique_id=2122403980]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 983.0
+offset_right = 158.0
+offset_bottom = 1021.0
+theme_override_fonts/font = ExtResource("4_1btlx")
+theme_override_font_sizes/font_size = 30
+text = "暂停"
+
+[node name="ResetButton" type="Button" parent="PomodoroUI/PopupPanel" unique_id=1443463284]
+layout_mode = 0
+offset_left = 193.0
+offset_top = 983.0
+offset_right = 262.0
+offset_bottom = 1021.0
+theme_override_fonts/font = ExtResource("4_1btlx")
+theme_override_font_sizes/font_size = 30
+text = "重置"
+
+[node name="Timer" type="Timer" parent="PomodoroUI" unique_id=582652145]
+
+[node name="to_map" type="Button" parent="." unique_id=350994365]
+offset_left = -329.0
+offset_top = 527.0
+offset_right = -65.0
+offset_bottom = 604.0
+icon = ExtResource("7_kbtmi")
+
+[node name="tomato" type="Area2D" parent="." unique_id=2054603560]
+position = Vector2(-3.0517578e-05, 3.0517578e-05)
+scale = Vector2(0.99999994, 0.9999999)
+
+[node name="Sprite2D" type="Sprite2D" parent="tomato" unique_id=1179751065]
+position = Vector2(-180.99998, 251)
+scale = Vector2(0.14107959, 0.13663413)
+texture = ExtResource("3_hkdju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tomato" unique_id=1611149929]
+position = Vector2(-182.99998, 251)
+shape = SubResource("CircleShape2D_ydier")
+
+[connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]
