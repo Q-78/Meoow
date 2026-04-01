@@ -2,17 +2,30 @@ extends Node2D
 
 @export var intimacy_label : Label
 
-# Called when the node enters the scene tree for the first time.
+@onready var cat_node = $cat001
+@onready var bowl_node = $bowl
+
 func _ready() -> void:
-	pass # Replace with function body.
+	bowl_node.feeding_finished.connect(_on_bowl_feeding_finished)
+	cat_node.eat_finished.connect(_on_cat_eat_finished)
+	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	intimacy_label.text = "intimacy:" + str(GameManager.intimacy)
+	pass
+
+func _on_bowl_feeding_finished() -> void:
+	var target_pos = $bowl/Marker2D.global_position
+	print("主场景传给猫的目标点:", target_pos)
+	cat_node.go_to_eat(target_pos)
+
+func _on_cat_eat_finished() -> void:
+	bowl_node.set_empty()
 
 
+	
+	
+	
 
 
-func _on_tocafe_pressed() -> void:
-	print("shop")
-	get_tree().change_scene_to_file("res://Scenes/cafe.tscn")
+func _on_to_map_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/map.tscn")

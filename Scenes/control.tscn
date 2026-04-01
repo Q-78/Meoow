@@ -5,9 +5,12 @@
 
 [node name="Control" type="Control" unique_id=1267235062]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchor_right = 21.992
+anchor_bottom = 15.294001
+offset_right = -0.24023438
+offset_bottom = -0.3203125
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_sjmnu")
 
 [node name="TimeLabel" type="Label" parent="." unique_id=1914531189]
@@ -17,8 +20,10 @@ anchor_left = 13.3
 anchor_top = 11.537001
 anchor_right = 14.275001
 anchor_bottom = 11.825001
-offset_top = -11.4800415
-offset_bottom = -3.0517578e-05
+offset_left = 124.0
+offset_top = 21.638672
+offset_right = 124.0
+offset_bottom = 33.120117
 theme_override_fonts/font = ExtResource("2_cgmvo")
 theme_override_font_sizes/font_size = 30
 

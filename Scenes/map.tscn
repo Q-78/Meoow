@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://chfdlub3p2xmu"]
+
+[ext_resource type="Script" uid="uid://78nka7tp4s56" path="res://Scripts/map.gd" id="1_ci6au"]
+[ext_resource type="Texture2D" uid="uid://ba00ev24w5hhi" path="res://Assets/Background/mapsprite.png" id="2_p3ir5"]
+[ext_resource type="Script" uid="uid://du3auo8yei5ul" path="res://Scripts/map_playground.gd" id="3_myvm1"]
+[ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="3_q0mm3"]
+
+[node name="Map" type="Node2D" unique_id=1782503920]
+script = ExtResource("1_ci6au")
+
+[node name="MapSprite" type="Sprite2D" parent="." unique_id=2110478501]
+position = Vector2(308, 650)
+rotation = 1.5707964
+scale = Vector2(3.2877934, 3.1138225)
+texture = ExtResource("2_p3ir5")
+
+[node name="playground" type="Button" parent="." unique_id=228101866]
+offset_left = 179.0
+offset_top = 13.0
+offset_right = 462.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 50
+text = "playground"
+
+[node name="library" type="Button" parent="." unique_id=2011544761]
+offset_left = 4.0
+offset_top = 11.0
+offset_right = 170.0
+offset_bottom = 88.0
+theme_override_font_sizes/font_size = 50
+text = "library"
+
+[node name="Dasha_River" type="Button" parent="." unique_id=705060203]
+offset_left = 22.0
+offset_top = 135.0
+offset_right = 236.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 50
+text = "dashahe"
+
+[node name="Bajiudong" type="Button" parent="." unique_id=2105006238]
+offset_left = 249.0
+offset_top = 139.0
+offset_right = 498.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 50
+text = "bajiudong"
+
+[node name="tree_hole" type="Button" parent="." unique_id=1556926172]
+offset_left = 179.0
+offset_top = 1121.0
+offset_right = 233.0
+offset_bottom = 1152.0
+theme_override_fonts/font = ExtResource("3_q0mm3")
+theme_override_font_sizes/font_size = 50
+text = "forest
+"
+
+[node name="ClickArea" type="Node2D" parent="." unique_id=1170765995]
+
+[node name="playground" type="Area2D" parent="ClickArea" unique_id=1336433054]
+script = ExtResource("3_myvm1")
+target_scene_path = "uid://v6cj0v5fdvix"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/playground" unique_id=723190997]
+polygon = PackedVector2Array(290, 291, 369, 293, 387, 310, 387, 350, 368, 369, 264, 369, 243, 333, 257, 293)
+
+[node name="Polygon2D" type="Polygon2D" parent="ClickArea/playground" unique_id=1217377811]
+color = Color(1, 0.3529412, 1, 1)
+polygon = PackedVector2Array(284, 293, 370, 294, 390, 310, 392, 351, 369, 369, 266, 368, 250, 358, 242, 337, 248, 311, 258, 300)
+
+[connection signal="pressed" from="playground" to="." method="_on_playground_pressed"]
+[connection signal="button_up" from="library" to="." method="_on_library_button_up"]
+[connection signal="pressed" from="Dasha_River" to="." method="_on_dasha_river_pressed"]
+[connection signal="pressed" from="tree_hole" to="." method="_on_tree_hole_pressed"]
