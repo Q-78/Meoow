@@ -3,9 +3,12 @@
 [ext_resource type="Script" uid="uid://dxhg6viahcmr0" path="res://Scripts/tree_hole.gd" id="1_7muut"]
 [ext_resource type="Texture2D" uid="uid://tywphimnct6s" path="res://Assets/Background/微信图片_20260324121356_1002_2891.jpg" id="1_dhkuw"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="3_rqen6"]
+[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="4_pdf1u"]
 
 [node name="Tree_Hole" type="Node2D" unique_id=618388545]
 script = ExtResource("1_7muut")
+api_key_normal = "app-o2W7o74J814kusdjkVnOQyo7"
+api_key_test = "app-ZRdm9lxJMFHuBb00O6AbWYEu"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1256471811]
 
@@ -86,3 +89,12 @@ text = "清空"
 [node name="cat001" parent="." unique_id=362636703 instance=ExtResource("3_rqen6")]
 position = Vector2(18, 930)
 scale = Vector2(0.3, 0.3)
+
+[node name="to_map" type="Button" parent="." unique_id=1364980644]
+offset_left = 51.0
+offset_top = 75.0
+offset_right = 315.0
+offset_bottom = 152.0
+icon = ExtResource("4_pdf1u")
+
+[connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]

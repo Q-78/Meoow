@@ -1,75 +1,83 @@
 [gd_scene format=3 uid="uid://chfdlub3p2xmu"]
 
 [ext_resource type="Script" uid="uid://78nka7tp4s56" path="res://Scripts/map.gd" id="1_ci6au"]
-[ext_resource type="Texture2D" uid="uid://ba00ev24w5hhi" path="res://Assets/Background/mapsprite.png" id="2_p3ir5"]
+[ext_resource type="Texture2D" uid="uid://bbds8cdoigxo5" path="res://Assets/Background/Map.png" id="2_p3ir5"]
 [ext_resource type="Script" uid="uid://du3auo8yei5ul" path="res://Scripts/map_playground.gd" id="3_myvm1"]
-[ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="3_q0mm3"]
+[ext_resource type="Script" uid="uid://cw5rr8fumlpgr" path="res://Scripts/map_tree_hole.gd" id="4_myvm1"]
+[ext_resource type="Script" uid="uid://bkip7f8q21vnb" path="res://Scripts/map_library.gd" id="5_q0mm3"]
+[ext_resource type="Script" uid="uid://drkqxj67wwrdn" path="res://Scripts/map_cafe.gd" id="6_np2xp"]
+[ext_resource type="Script" uid="uid://b5opiqunhscgl" path="res://Scripts/map_dashariver.gd" id="7_w7jjh"]
 
 [node name="Map" type="Node2D" unique_id=1782503920]
 script = ExtResource("1_ci6au")
 
 [node name="MapSprite" type="Sprite2D" parent="." unique_id=2110478501]
-position = Vector2(308, 650)
-rotation = 1.5707964
+position = Vector2(383, 798.00006)
+rotation = -0.0028079802
 scale = Vector2(3.2877934, 3.1138225)
 texture = ExtResource("2_p3ir5")
-
-[node name="playground" type="Button" parent="." unique_id=228101866]
-offset_left = 179.0
-offset_top = 13.0
-offset_right = 462.0
-offset_bottom = 90.0
-theme_override_font_sizes/font_size = 50
-text = "playground"
-
-[node name="library" type="Button" parent="." unique_id=2011544761]
-offset_left = 4.0
-offset_top = 11.0
-offset_right = 170.0
-offset_bottom = 88.0
-theme_override_font_sizes/font_size = 50
-text = "library"
-
-[node name="Dasha_River" type="Button" parent="." unique_id=705060203]
-offset_left = 22.0
-offset_top = 135.0
-offset_right = 236.0
-offset_bottom = 212.0
-theme_override_font_sizes/font_size = 50
-text = "dashahe"
-
-[node name="Bajiudong" type="Button" parent="." unique_id=2105006238]
-offset_left = 249.0
-offset_top = 139.0
-offset_right = 498.0
-offset_bottom = 216.0
-theme_override_font_sizes/font_size = 50
-text = "bajiudong"
-
-[node name="tree_hole" type="Button" parent="." unique_id=1556926172]
-offset_left = 179.0
-offset_top = 1121.0
-offset_right = 233.0
-offset_bottom = 1152.0
-theme_override_fonts/font = ExtResource("3_q0mm3")
-theme_override_font_sizes/font_size = 50
-text = "forest
-"
+metadata/_edit_lock_ = true
 
 [node name="ClickArea" type="Node2D" parent="." unique_id=1170765995]
 
 [node name="playground" type="Area2D" parent="ClickArea" unique_id=1336433054]
+rotation = 0.001846336
 script = ExtResource("3_myvm1")
 target_scene_path = "uid://v6cj0v5fdvix"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/playground" unique_id=723190997]
+position = Vector2(395.05878, 468.1963)
+rotation = 1.5707964
 polygon = PackedVector2Array(290, 291, 369, 293, 387, 310, 387, 350, 368, 369, 264, 369, 243, 333, 257, 293)
 
 [node name="Polygon2D" type="Polygon2D" parent="ClickArea/playground" unique_id=1217377811]
+position = Vector2(395.05878, 468.1963)
+rotation = 1.5707964
 color = Color(1, 0.3529412, 1, 1)
 polygon = PackedVector2Array(284, 293, 370, 294, 390, 310, 392, 351, 369, 369, 266, 368, 250, 358, 242, 337, 248, 311, 258, 300)
 
-[connection signal="pressed" from="playground" to="." method="_on_playground_pressed"]
-[connection signal="button_up" from="library" to="." method="_on_library_button_up"]
-[connection signal="pressed" from="Dasha_River" to="." method="_on_dasha_river_pressed"]
-[connection signal="pressed" from="tree_hole" to="." method="_on_tree_hole_pressed"]
+[node name="tree_hole" type="Area2D" parent="ClickArea" unique_id=2051609609]
+script = ExtResource("4_myvm1")
+target_scene_path = "uid://bjmjb6i3y1cl"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/tree_hole" unique_id=779310249]
+polygon = PackedVector2Array(360, 780, 377, 784, 393, 790, 416, 808, 415, 828, 395, 846, 379, 844, 362, 842, 351, 849, 338, 848, 333, 842, 333, 838, 327, 838, 325, 831, 316, 828, 320, 823, 314, 816, 312, 806, 321, 797, 328, 800, 331, 791, 339, 787, 343, 780, 350, 780)
+
+[node name="Polygon2D" type="Polygon2D" parent="ClickArea/tree_hole" unique_id=1254443165]
+polygon = PackedVector2Array(357, 781, 370, 784, 379, 790, 396, 792, 413, 801, 417, 816, 413, 830, 396, 842, 381, 847, 361, 845, 354, 848, 337, 849, 332, 845, 332, 838, 323, 835, 316, 830, 317, 822, 310, 813, 316, 800, 325, 798, 333, 791, 340, 785)
+
+[node name="library" type="Area2D" parent="ClickArea" unique_id=435494307]
+script = ExtResource("5_q0mm3")
+target_scene_path = "uid://j82vjc2ev64k"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/library" unique_id=944322020]
+polygon = PackedVector2Array(648, 423, 665, 440, 674, 456, 674, 514, 737, 666, 737, 679, 718, 684, 698, 642, 645, 513, 622, 497, 616, 479, 609, 467, 601, 462, 600, 437, 622, 418)
+
+[node name="Polygon2D" type="Polygon2D" parent="ClickArea/library" unique_id=1123193984]
+polygon = PackedVector2Array(626, 421, 657, 429, 671, 443, 674, 514, 737, 668, 732, 684, 713, 682, 652, 525, 645, 512, 620, 497, 616, 478, 601, 461, 598, 440, 610, 425)
+
+[node name="cafe" type="Area2D" parent="ClickArea" unique_id=1407183894]
+script = ExtResource("6_np2xp")
+target_scene_path = "uid://b0j1ktcr1bcac"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/cafe" unique_id=1119928400]
+polygon = PackedVector2Array(574, 653, 574, 649, 586, 649, 587, 645, 601, 646, 600, 652, 605, 652, 605, 666, 608, 665, 609, 668, 613, 668, 614, 675, 618, 673, 619, 681, 628, 680, 628, 691, 631, 691, 631, 700, 618, 702, 617, 705, 601, 705, 601, 709, 589, 709, 588, 712, 572, 712, 571, 714, 556, 714, 556, 708, 552, 707, 551, 696, 558, 696, 558, 688, 556, 688, 555, 680, 562, 679, 558, 665, 555, 664, 554, 655, 561, 655, 561, 651)
+
+[node name="Polygon2D" type="Polygon2D" parent="ClickArea/cafe" unique_id=1032204282]
+polygon = PackedVector2Array(587, 645, 602, 646, 601, 651, 604, 652, 605, 664, 609, 664, 608, 668, 615, 668, 614, 673, 618, 674, 618, 680, 629, 680, 629, 689, 630, 690, 630, 700, 618, 702, 618, 704, 601, 705, 601, 709, 588, 709, 588, 713, 571, 713, 556, 714, 556, 709, 551, 708, 551, 695, 558, 695, 558, 689, 556, 689, 555, 681, 562, 680, 560, 676, 558, 666, 554, 665, 554, 655, 560, 654, 573, 653, 573, 648, 587, 648)
+
+[node name="DashaRiver" type="Area2D" parent="ClickArea" unique_id=65694084]
+script = ExtResource("7_w7jjh")
+target_scene_path = "uid://bbpgn05bp6x3w"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/DashaRiver" unique_id=2125817953]
+polygon = PackedVector2Array(402, 502, 428, 502, 428, 506, 431, 506, 431, 514, 435, 515, 435, 520, 438, 521, 438, 554, 435, 555, 435, 563, 432, 564, 432, 570, 428, 570, 429, 572, 402, 573, 402, 570, 398, 570, 399, 564, 396, 564, 395, 556, 392, 555, 392, 521, 396, 520, 395, 512, 398, 511, 398, 506, 402, 506)
+
+[node name="Polygon2D" type="Polygon2D" parent="ClickArea/DashaRiver" unique_id=1561741075]
+polygon = PackedVector2Array(402, 502, 428, 502, 428, 506, 430, 505, 431, 513, 434, 515, 435, 521, 436, 521, 437, 555, 435, 555, 435, 564, 432, 564, 432, 570, 428, 570, 428, 572, 402, 573, 402, 570, 398, 570, 398, 564, 395, 564, 395, 554, 392, 554, 392, 521, 395, 521, 395, 511, 398, 511, 398, 506, 402, 505)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1398896364]
+position = Vector2(382.00003, 749.00006)
+rotation = -2.0150418
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
