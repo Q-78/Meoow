@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b0j1ktcr1bcac"]
 
+[ext_resource type="Script" uid="uid://dbjiiayyi5mnx" path="res://Scripts/cafe.gd" id="1_77aku"]
 [ext_resource type="Texture2D" uid="uid://cut31qxmn30kh" path="res://Assets/Background/咖啡馆.png" id="1_380lw"]
+[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="3_8xjvj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_le2w7"]
 atlas = ExtResource("1_380lw")
@@ -18,8 +20,20 @@ animations = [{
 }]
 
 [node name="cafe" type="Node2D" unique_id=1025844505]
+script = ExtResource("1_77aku")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1539910536]
+position = Vector2(-15.250016, -10.772533)
+scale = Vector2(0.46907553, 0.46907553)
 sprite_frames = SubResource("SpriteFrames_77aku")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=533821934]
+
+[node name="to_map" type="Button" parent="." unique_id=1231041292]
+offset_left = -322.0
+offset_top = 451.0
+offset_right = -43.0
+offset_bottom = 606.0
+icon = ExtResource("3_8xjvj")
+
+[connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]

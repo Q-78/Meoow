@@ -1,22 +1,77 @@
 [gd_scene format=3 uid="uid://dw47w0tenlaj5"]
 
 [ext_resource type="Script" uid="uid://dghdx7u43k2cy" path="res://Scripts/start_scene.gd" id="1_8turk"]
-[ext_resource type="Texture2D" uid="uid://comgmt68bju0k" path="res://Assets/Background/start.png" id="1_aeweq"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="2_8turk"]
+[ext_resource type="Texture2D" uid="uid://bujth17vewquu" path="res://Assets/物品素材/white_background.png" id="2_cfx51"]
+[ext_resource type="Texture2D" uid="uid://g4n36t6oxebt" path="res://Assets/start/M_with_cat.png" id="2_jk0hh"]
+[ext_resource type="Texture2D" uid="uid://qly1dtxyatkx" path="res://Assets/start/M.png" id="4_lfimv"]
+[ext_resource type="Texture2D" uid="uid://2i0twx4qa15m" path="res://Assets/start/e.png" id="5_jk0hh"]
+[ext_resource type="Texture2D" uid="uid://cliip8s3ok0od" path="res://Assets/start/o.png" id="6_tl0ia"]
+[ext_resource type="Texture2D" uid="uid://ujykpl08sj44" path="res://Assets/start/w.png" id="7_bdamb"]
+[ext_resource type="Texture2D" uid="uid://ha8aq60oek87" path="res://Assets/start/hitsz.png" id="8_lfimv"]
 
 [node name="StartScene" type="Node2D" unique_id=505551604]
 script = ExtResource("1_8turk")
+m_final_texture = ExtResource("2_jk0hh")
 
-[node name="Logo" type="TextureRect" parent="." unique_id=1730796274]
-offset_left = 29.0
-offset_right = 676.0
-offset_bottom = 1294.0
-texture = ExtResource("1_aeweq")
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=994263768]
-position = Vector2(338, 320)
+[node name="background" type="TextureRect" parent="." unique_id=1730796274]
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 718.0
+offset_bottom = 1433.0
+texture = ExtResource("2_cfx51")
+metadata/_edit_lock_ = true
 
 [node name="cat001" parent="." unique_id=362636703 instance=ExtResource("2_8turk")]
-position = Vector2(289.99997, 364)
+position = Vector2(351, 354)
 scale = Vector2(0.22, 0.22)
 splash_mode = true
+
+[node name="Letters" type="Node2D" parent="." unique_id=687299496]
+position = Vector2(139, 314)
+
+[node name="M" type="Sprite2D" parent="Letters" unique_id=1052041602]
+position = Vector2(-6.999998, 143)
+scale = Vector2(3.943182, 3.943182)
+texture = ExtResource("4_lfimv")
+
+[node name="LandPoint" type="Marker2D" parent="Letters/M" unique_id=2056454908]
+position = Vector2(0.26945245, 1.9543657)
+
+[node name="e" type="Sprite2D" parent="Letters" unique_id=526729593]
+position = Vector2(118, 157)
+scale = Vector2(4.3437495, 4.3437505)
+texture = ExtResource("5_jk0hh")
+
+[node name="LandPoint" type="Marker2D" parent="Letters/e" unique_id=1008391541]
+position = Vector2(0.92086345, -0.92086315)
+
+[node name="O1" type="Sprite2D" parent="Letters" unique_id=747404520]
+position = Vector2(230, 150.00002)
+scale = Vector2(4.069999, 4.0699987)
+texture = ExtResource("6_tl0ia")
+
+[node name="LandPoint" type="Marker2D" parent="Letters/O1" unique_id=236469168]
+position = Vector2(-0.9828087, 0.98280144)
+
+[node name="O2" type="Sprite2D" parent="Letters" unique_id=1159457564]
+position = Vector2(334.00003, 149.00002)
+scale = Vector2(4.07, 4.07)
+texture = ExtResource("6_tl0ia")
+
+[node name="LandPoint" type="Marker2D" parent="Letters/O2" unique_id=173915647]
+position = Vector2(-0.7371081, 1.228501)
+
+[node name="W" type="Sprite2D" parent="Letters" unique_id=440275116]
+position = Vector2(454, 148.00002)
+scale = Vector2(3.8906271, 3.8906271)
+texture = ExtResource("7_bdamb")
+
+[node name="LandPoint" type="Marker2D" parent="Letters/W" unique_id=651936310]
+position = Vector2(-1.0281119, 1.799196)
+
+[node name="HITlogo" type="Sprite2D" parent="." unique_id=294436672]
+position = Vector2(361, 872)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("8_lfimv")
+metadata/_edit_lock_ = true

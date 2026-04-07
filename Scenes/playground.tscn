@@ -128,7 +128,15 @@ scale = Vector2(3.275391, 3.275391)
 texture = ExtResource("16_ubr2o")
 
 [node name="Marker2D" type="Marker2D" parent="bowl" unique_id=1397332639]
-position = Vector2(-350, 493)
+position = Vector2(-241, 614)
 scale = Vector2(0.3, 0.3)
+
+[node name="FeedButton" type="Button" parent="." unique_id=1961336851]
+offset_left = 9.0
+offset_top = 852.0
+offset_right = 105.77419
+offset_bottom = 927.0
+theme_override_font_sizes/font_size = 30
+text = "喂食"
 
 [connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]

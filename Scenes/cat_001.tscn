@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bpa4riapiab6k" path="res://Scripts/cat_001.gd" id="1_4eolu"]
 [ext_resource type="Texture2D" uid="uid://c23mow3tvl0wh" path="res://Assets/Cat/Cat001_sit.png" id="1_7ufck"]
 [ext_resource type="Texture2D" uid="uid://dbem7lyppqcox" path="res://Assets/Cat/Cat001_picked.png" id="2_o44ds"]
-[ext_resource type="PackedScene" uid="uid://cjt7p56ahe86v" path="res://Assets/hand.tscn" id="2_oow8u"]
+[ext_resource type="PackedScene" uid="uid://cjt7p56ahe86v" path="res://Scenes/hand.tscn" id="2_oow8u"]
 [ext_resource type="PackedScene" uid="uid://ckcmql4vtlt1s" path="res://Scenes/Heart.tscn" id="3_axb15"]
 [ext_resource type="Texture2D" uid="uid://72yeg7b3xxjb" path="res://Assets/Cat001/Cat001_eat.png" id="4_5d3ve"]
 [ext_resource type="Texture2D" uid="uid://1at1ok5mekyj" path="res://Assets/Cat/Cat001_sleep.png" id="4_mn4ah"]
@@ -250,7 +250,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oqcwo")
 }],
-"loop": true,
+"loop": false,
 "name": &"roll",
 "speed": 3.0
 }, {
@@ -340,21 +340,20 @@ hand_scene = ExtResource("2_oow8u")
 heart_scene = ExtResource("3_axb15")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=127424701]
-position = Vector2(358, 358)
+position = Vector2(19, -21)
 scale = Vector2(22.375, 22.375)
 sprite_frames = SubResource("SpriteFrames_5d3ve")
-animation = &"jump"
+animation = &"roll"
 autoplay = "sit"
-frame_progress = 0.49604413
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1434123616]
-position = Vector2(361, 443)
+position = Vector2(4, 26)
 shape = SubResource("CircleShape2D_cywit")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1335264772]
 stream = ExtResource("7_mn4ah")
 
 [node name="HeartPos" type="Marker2D" parent="." unique_id=1259834657]
-position = Vector2(60, 0)
+position = Vector2(-2, -235)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
