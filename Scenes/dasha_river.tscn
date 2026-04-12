@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbpgn05bp6x3w"]
 
-[ext_resource type="Script" uid="uid://ixgn61hta1ug" path="res://Scripts/dasha_river.gd" id="1_cxar7"]
+[ext_resource type="Script" uid="uid://ixgn61hta1ug" path="res://Scripts/scenes_scripts/dasha_river.gd" id="1_cxar7"]
 [ext_resource type="Texture2D" uid="uid://c0dn8hu7j67c4" path="res://Assets/Background/微信图片_20260324121355_1001_2891.jpg" id="1_gb5ch"]
 [ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="2_4ar4n"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="4_hxtlg"]

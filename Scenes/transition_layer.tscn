@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://hyee2rmi31jb"]
+
+[ext_resource type="Script" uid="uid://s1hrft63d731" path="res://Scripts/scene_transition.gd" id="1_0f3qh"]
+[ext_resource type="Texture2D" uid="uid://b6hu1ugdpsc7p" path="res://Assets/claw.png" id="2_4gl7c"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1294319672]
+script = ExtResource("1_0f3qh")
+paw_texture = ExtResource("2_4gl7c")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=366208924]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Prints" type="Node2D" parent="." unique_id=680027832]

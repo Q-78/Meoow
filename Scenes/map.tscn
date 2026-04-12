@@ -1,12 +1,12 @@
 [gd_scene format=3 uid="uid://chfdlub3p2xmu"]
 
-[ext_resource type="Script" uid="uid://78nka7tp4s56" path="res://Scripts/map.gd" id="1_ci6au"]
+[ext_resource type="Script" uid="uid://78nka7tp4s56" path="res://Scripts/scenes_scripts/map.gd" id="1_ci6au"]
 [ext_resource type="Texture2D" uid="uid://bbds8cdoigxo5" path="res://Assets/Background/Map.png" id="2_p3ir5"]
-[ext_resource type="Script" uid="uid://du3auo8yei5ul" path="res://Scripts/map_playground.gd" id="3_myvm1"]
-[ext_resource type="Script" uid="uid://cw5rr8fumlpgr" path="res://Scripts/map_tree_hole.gd" id="4_myvm1"]
-[ext_resource type="Script" uid="uid://bkip7f8q21vnb" path="res://Scripts/map_library.gd" id="5_q0mm3"]
-[ext_resource type="Script" uid="uid://drkqxj67wwrdn" path="res://Scripts/map_cafe.gd" id="6_np2xp"]
-[ext_resource type="Script" uid="uid://b5opiqunhscgl" path="res://Scripts/map_dashariver.gd" id="7_w7jjh"]
+[ext_resource type="Script" uid="uid://du3auo8yei5ul" path="res://Scripts/map/map_playground.gd" id="3_myvm1"]
+[ext_resource type="Script" uid="uid://cw5rr8fumlpgr" path="res://Scripts/map/map_tree_hole.gd" id="4_myvm1"]
+[ext_resource type="Script" uid="uid://bkip7f8q21vnb" path="res://Scripts/map/map_library.gd" id="5_q0mm3"]
+[ext_resource type="Script" uid="uid://drkqxj67wwrdn" path="res://Scripts/map/map_cafe.gd" id="6_np2xp"]
+[ext_resource type="Script" uid="uid://b5opiqunhscgl" path="res://Scripts/map/map_dashariver.gd" id="7_w7jjh"]
 
 [node name="Map" type="Node2D" unique_id=1782503920]
 script = ExtResource("1_ci6au")

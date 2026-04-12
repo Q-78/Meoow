@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjmjb6i3y1cl"]
 
-[ext_resource type="Script" uid="uid://dxhg6viahcmr0" path="res://Scripts/tree_hole.gd" id="1_7muut"]
+[ext_resource type="Script" uid="uid://dxhg6viahcmr0" path="res://Scripts/scenes_scripts/tree_hole.gd" id="1_7muut"]
 [ext_resource type="Texture2D" uid="uid://tywphimnct6s" path="res://Assets/Background/微信图片_20260324121356_1002_2891.jpg" id="1_dhkuw"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="3_rqen6"]
 [ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="4_pdf1u"]

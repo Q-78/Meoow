@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://j82vjc2ev64k"]
 
 [ext_resource type="Texture2D" uid="uid://bycnh4gcxm58s" path="res://Assets/Background/Library.jpg" id="1_qoy0t"]
-[ext_resource type="Script" uid="uid://drpiycea5woo4" path="res://Scripts/library_scene.gd" id="1_ydier"]
+[ext_resource type="Script" uid="uid://drpiycea5woo4" path="res://Scripts/scenes_scripts/library_scene.gd" id="1_ydier"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="2_061c0"]
 [ext_resource type="Texture2D" uid="uid://kdlqsomidlmx" path="res://Assets/物品素材/Pomodoro.png" id="3_hkdju"]
 [ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="4_1btlx"]
