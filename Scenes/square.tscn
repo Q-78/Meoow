@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cj6bds54x8bam"]
+
+[ext_resource type="Script" uid="uid://dv16oh6wm26yo" path="res://Scripts/square.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://br25qiptc7kpx" path="res://Assets/Background/square.jpg" id="2_bg"]
+[ext_resource type="SpriteFrames" path="res://Assets/Cat001/cat001_square_frames.tres" id="3_cat001_frames"]
+[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="4_vkl7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cat_click"]
+size = Vector2(220, 220)
+
+[node name="Square" type="Node2D" unique_id=1684321893]
+script = ExtResource("1_script")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=863084115]
+position = Vector2(360, 640)
+scale = Vector2(0.5625, 0.56322)
+texture = ExtResource("2_bg")
+
+[node name="CatClick" type="Area2D" parent="." unique_id=130498198]
+position = Vector2(373, 909)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CatClick" unique_id=804366025]
+shape = SubResource("RectangleShape2D_cat_click")
+
+[node name="Cat" type="AnimatedSprite2D" parent="CatClick" unique_id=1434573081]
+scale = Vector2(6.8, 6.8)
+sprite_frames = ExtResource("3_cat001_frames")
+animation = &"sit"
+
+[node name="to_map" type="Button" parent="." unique_id=1449274729]
+offset_left = 11.0
+offset_top = 34.0
+offset_right = 101.0
+offset_bottom = 129.0
+icon = ExtResource("4_vkl7y")
+
+[connection signal="input_event" from="CatClick" to="." method="_on_cat_click_input_event"]

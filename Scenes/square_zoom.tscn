@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://7s4pn012hst0"]
+
+[ext_resource type="Script" uid="uid://cyuo26dsua23f" path="res://Scripts/square_zoom.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://057yd6iahh52" path="res://Assets/Background/square_zoom.png" id="2_bg"]
+[ext_resource type="Texture2D" uid="uid://bjt28t31whh10" path="res://Assets/Square/Bigcat001_sit.png" id="3_sit"]
+[ext_resource type="Texture2D" uid="uid://bo3neoxl7rgfo" path="res://Assets/Square/Bigcat001_happy.png" id="4_happy"]
+[ext_resource type="Texture2D" uid="uid://46gyo2bf0gvh" path="res://Assets/Square/Bigcat001_angry.png" id="5_angry"]
+[ext_resource type="Texture2D" uid="uid://cpwxrc1nvu3n0" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return2.png" id="6_3webu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_angry_0"]
+atlas = ExtResource("5_angry")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomhappy_0"]
+atlas = ExtResource("4_happy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomhappy_1"]
+atlas = ExtResource("4_happy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomhappy_2"]
+atlas = ExtResource("4_happy")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomhappy_3"]
+atlas = ExtResource("4_happy")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomhappy_4"]
+atlas = ExtResource("4_happy")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomhappy_5"]
+atlas = ExtResource("4_happy")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomsit_0"]
+atlas = ExtResource("3_sit")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomsit_1"]
+atlas = ExtResource("3_sit")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomsit_2"]
+atlas = ExtResource("3_sit")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomsit_3"]
+atlas = ExtResource("3_sit")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomsit_4"]
+atlas = ExtResource("3_sit")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_zoomsit_5"]
+atlas = ExtResource("3_sit")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_zoom"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_angry_0")
+}],
+"loop": true,
+"name": &"angry",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_zoomhappy_0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_zoomhappy_1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_zoomhappy_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_zoomhappy_3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_zoomhappy_4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_zoomhappy_5")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.4,
+"texture": SubResource("AtlasTexture_zoomsit_0")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_zoomsit_1")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_zoomsit_2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_zoomsit_3")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_zoomsit_4")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_zoomsit_5")
+}],
+"loop": true,
+"name": &"sit",
+"speed": 6.0
+}]
+
+[node name="SquareZoom" type="Node2D" unique_id=636955927]
+script = ExtResource("1_script")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=699944338]
+position = Vector2(98, 149)
+scale = Vector2(2, 2)
+texture = ExtResource("2_bg")
+
+[node name="BigCat" type="AnimatedSprite2D" parent="." unique_id=377402399]
+position = Vector2(384, 713)
+scale = Vector2(5.5, 5.5)
+sprite_frames = SubResource("SpriteFrames_zoom")
+animation = &"happy"
+
+[node name="HeadButton" type="Button" parent="." unique_id=2089695104]
+modulate = Color(1, 1, 1, 0)
+offset_left = 177.0
+offset_top = 460.0
+offset_right = 353.0
+offset_bottom = 624.0
+focus_mode = 0
+flat = true
+
+[node name="ChinButton" type="Button" parent="." unique_id=1848323633]
+modulate = Color(1, 1, 1, 0)
+offset_left = 150.0
+offset_top = 635.0
+offset_right = 311.0
+offset_bottom = 749.0
+focus_mode = 0
+flat = true
+
+[node name="PawsButton" type="Button" parent="." unique_id=1382180902]
+modulate = Color(1, 1, 1, 0)
+offset_left = 142.0
+offset_top = 938.0
+offset_right = 311.0
+offset_bottom = 1067.0
+focus_mode = 0
+flat = true
+
+[node name="TailButton" type="Button" parent="." unique_id=749151800]
+modulate = Color(1, 1, 1, 0)
+offset_left = 490.0
+offset_top = 889.0
+offset_right = 658.0
+offset_bottom = 1008.0
+focus_mode = 0
+flat = true
+
+[node name="back" type="Button" parent="." unique_id=30129838]
+offset_left = 21.0
+offset_top = 27.0
+offset_right = 285.0
+offset_bottom = 104.0
+icon = ExtResource("6_3webu")
+flat = true
+
+[connection signal="pressed" from="HeadButton" to="." method="_on_head_pressed"]
+[connection signal="pressed" from="ChinButton" to="." method="_on_chin_pressed"]
+[connection signal="pressed" from="PawsButton" to="." method="_on_paws_pressed"]
+[connection signal="pressed" from="TailButton" to="." method="_on_tail_pressed"]
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
