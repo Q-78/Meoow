@@ -1,6 +1,7 @@
 extends Node2D
 
-@export_file("*.tscn") var next_scene_path: String = "res://Scenes/playground.tscn"
+@export_file("*.tscn") var auth_scene_path: String = "res://Scenes/auth.tscn"
+@export_file("*.tscn") var main_scene_path: String = "res://Scenes/playground.tscn"
 
 # =========================
 # 动画参数（已优化）
@@ -10,7 +11,7 @@ extends Node2D
 @export var stay_time: float = 0.16         # 每次落地后停顿
 @export var end_hold_time: float = 0.8      # 结尾停留时间
 @export var sleep_time: float = 1.5         # 到 M 后播放 sleep 动画的时长
-@export var m_final_texture: Texture2D      # 修改位置1：小猫消失时，M 切换成的新图片
+@export var m_final_texture: Texture2D      # 小猫消失时，M 切换成的新图片
 
 @onready var cat = $cat001
 
@@ -26,6 +27,11 @@ var cat_base_scale: Vector2
 var letter_base_scales: Dictionary = {}
 
 func _ready() -> void:
+	# 防止重复进入时 alpha 没恢复
+	if cat:
+		cat.visible = true
+		cat.modulate.a = 1.0
+
 	# 记录猫原始缩放
 	cat_base_scale = cat.scale
 
@@ -61,8 +67,23 @@ func _ready() -> void:
 
 	await get_tree().create_timer(end_hold_time).timeout
 
-	if next_scene_path != "":
-		get_tree().change_scene_to_file(next_scene_path)
+	go_next_scene()
+
+
+# =========================
+# 统一结尾跳转
+# 已登录：记录主场景
+# 未登录：清空场景记忆，去登录/认证页
+# =========================
+func go_next_scene() -> void:
+	if AccountManager.is_logged_in():
+		if main_scene_path != "":
+			SceneMemory.set_last_scene(main_scene_path)
+			get_tree().change_scene_to_file(main_scene_path)
+	else:
+		if auth_scene_path != "":
+			SceneMemory.clear_data()
+			get_tree().change_scene_to_file(auth_scene_path)
 
 
 # =========================
@@ -213,7 +234,6 @@ func squash_effect() -> void:
 # 最后在 M 位置淡出
 # =========================
 func fade_out_cat() -> void:
-	# 修改位置3：小猫开始消失时，同时切换 M 的图片
 	change_m_texture()
 
 	var t = create_tween()

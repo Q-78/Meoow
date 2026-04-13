@@ -11,13 +11,16 @@ config_version=5
 [application]
 
 config/name="Meoow"
-run/main_scene="uid://dw47w0tenlaj5"
+run/main_scene="uid://dqf0g5w1r28ly"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*uid://bhlmenant76i5"
+AccountManager="*uid://b4ycrk4s0wt0o"
+SceneMemory="*uid://mmj6r8hfbwgr"
+PawTransition="*uid://hyee2rmi31jb"
 
 [display]
 

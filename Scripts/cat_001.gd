@@ -1,223 +1,10 @@
-#extends CharacterBody2D
-#
-#signal eat_finished
-#
-#@export var splash_mode: bool = false
-#
-#@export var move_speed : float = 50
-#@export var eat_speed : float = 250
-#@export var animator : AnimatedSprite2D
-#
-#@export var hand_scene : PackedScene
-#@export var heart_scene : PackedScene
-#
-#@onready var cat_collision = $CollisionShape2D
-#
-## ====================【新增：吃饭控制】====================
-#@export var eat_duration : float = 3.0
-#@export var food_arrive_distance : float = 20.0
-#
-#var is_going_to_eat : bool = false
-#var is_eating_food : bool = false
-#var food_target_position : Vector2 = Vector2.ZERO
-## ========================================================
-#
-#enum State {
-	#IDLE,
-	#WALK,
-	#SLEEP
-#}
-#
-#var current_state : State = State.IDLE
-#var state_timer : float = 0.0
-#
-#func _ready() -> void:
-	#if splash_mode:
-		#velocity = Vector2.ZERO
-		#if animator:
-			#animator.play("sit")
-	#else:
-		#change_state(State.IDLE)
-#
-#
-#func _physics_process(delta: float) -> void:
-	#if splash_mode:
-		#velocity = Vector2.ZERO
-		#return
-	## ====================【新增：去吃饭优先级最高】====================
-	#if is_going_to_eat:
-		#var dir = food_target_position - global_position
-		#
-		#if dir.length() <= food_arrive_distance:
-			#print("到达")
-			#global_position = food_target_position
-			#velocity = Vector2.ZERO
-			#is_going_to_eat = false
-			#
-			#if not is_eating_food:
-				#start_eating_food()
-			#return
-		#else:
-			#velocity = dir.normalized() * eat_speed
-			#if animator.animation != "walk":
-				#animator.play("walk")
-			#animator.flip_h = velocity.x < 0
-			#move_and_slide()
-			#return
-	#
-	#if is_eating_food:
-		#velocity = Vector2.ZERO
-		#return
-	## ==============================================================
-	#
-	#state_timer -= delta
-	#
-	#match current_state:
-		#State.IDLE:
-			#velocity = Vector2.ZERO
-		#
-		#State.WALK:
-			#move_and_slide()
-		#
-		#State.SLEEP:
-			#velocity = Vector2.ZERO
-	#
-	## 时间到了就切换状态
-	#if state_timer <= 0:
-		#decide_next_state()
-#
-#
-## ======================
-## 状态切换逻辑
-## ======================
-#func change_state(new_state : State):
-	#current_state = new_state
-	#
-	#match new_state:
-		#State.IDLE:
-			#animator.play("sit")
-			#state_timer = randf_range(2, 5)
-		#
-		#State.WALK:
-			#animator.play("walk")
-			## 随机方向
-			#var dir = -1 if randf() < 0.5 else 1
-			#velocity = Vector2(dir * move_speed, 0)
-			#animator.flip_h = dir < 0
-			#state_timer = randf_range(2, 4)
-		#
-		#State.SLEEP:
-			#animator.play("sleep")
-			#state_timer = randf_range(4, 8)
-#
-#
-#func decide_next_state():
-	#match current_state:
-		#State.IDLE:
-			#if randf() < 0.6:
-				#change_state(State.WALK)
-			#else:
-				#change_state(State.SLEEP)
-		#
-		#State.WALK:
-			#if randf() < 0.5:
-				#change_state(State.IDLE)
-			#else:
-				#change_state(State.SLEEP)
-		#
-		#State.SLEEP:
-			#change_state(State.IDLE)
-#
-#
-## ======================
-## 点击逻辑（优先打断状态）
-## ======================
-#func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	#if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		#print("玩家角色被点击！")
-		#
-		## ⭐ 新增：生成特效
-		#spawn_hand(get_global_mouse_position())
-		#spawn_heart()
-		##spawn_hand(event.position)
-		#
-		#GameManager.intimacy += 1
-		#$AudioStreamPlayer.play()
-		#print(GameManager.intimacy)
-		## 打断当前行为
-		#current_state = State.IDLE
-		#
-		#animator.play("picked")
-		#await get_tree().create_timer(1).timeout
-		#animator.play("sit")
-		#
-#func spawn_hand(pos: Vector2):
-	#var hand = hand_scene.instantiate()
-	#get_tree().current_scene.add_child(hand)
-	#hand.global_position = pos
-#
-#func spawn_heart():
-	#var heart = heart_scene.instantiate()
-	#get_tree().current_scene.add_child(heart)
-	#heart.global_position = $HeartPos.global_position
-#
-## ====================【新增：外部调用，让猫去吃饭】====================
-#func go_to_eat(target_pos: Vector2):
-	#print("收到目标点:", target_pos)
-	#is_going_to_eat = true
-	#is_eating_food = false
-	#food_target_position = target_pos
-	#
-	#if cat_collision:
-		#cat_collision.disabled = true
-#
-#
-#func start_eating_food():
-	#is_eating_food = true
-	#
-	## 到达后播放吃饭动画
-	#if animator.sprite_frames.has_animation("eat"):
-		#animator.play("eat")
-	#else:
-		#animator.play("sit")
-	#
-	#await get_tree().create_timer(eat_duration).timeout
-	#
-	#is_eating_food = false
-	#
-	#if cat_collision:
-		#cat_collision.disabled = false
-	#
-	#emit_signal("eat_finished")
-	#
-	#change_state(State.IDLE)
-## ===================================================================
-#func play_splash_roll() -> void:
-	#if not animator:
-		#return
-	#
-	#velocity = Vector2.ZERO
-	#
-	#if animator.sprite_frames.has_animation("roll"):
-		#animator.play("roll")
-		#await animator.animation_finished
-	#else:
-		## 如果暂时没有 roll 动画，就退化成 picked 或 sit
-		#if animator.sprite_frames.has_animation("picked"):
-			#animator.play("picked")
-			#await get_tree().create_timer(1.0).timeout
-	#
-	#animator.play("sit")
-
-
-
 extends CharacterBody2D
 
 signal eat_finished
 
 @export var splash_mode: bool = false
 
-@export var move_speed : float = 50
+@export var move_speed : float = 200
 @export var eat_speed : float = 250
 @export var animator : AnimatedSprite2D
 
@@ -227,13 +14,20 @@ signal eat_finished
 @onready var cat_collision = $CollisionShape2D
 
 # ====================【新增：普通移动边界】====================
-@export var walk_min_x: float = 80.0
-@export var walk_max_x: float = 640.0
-@export var walk_min_y: float = 100.0
-@export var walk_max_y: float = 1180.0
+@export var walk_min_x: float = -400.0
+@export var walk_max_x: float = 5000.0
+@export var walk_min_y: float = 0.0
+@export var walk_max_y: float = 3000.0
 
 # 当前普通移动方向（只用于普通 WALK，不影响吃饭）
 var walk_direction: Vector2 = Vector2.ZERO
+# ===========================================================
+
+# ====================【新增：点击地面移动】====================
+@export var click_move_arrive_distance: float = 12.0
+
+var is_moving_to_point: bool = false
+var move_target_position: Vector2 = Vector2.ZERO
 # ===========================================================
 
 # ====================【新增：吃饭控制】====================
@@ -287,12 +81,33 @@ func _physics_process(delta: float) -> void:
 				animator.play("walk")
 			animator.flip_h = velocity.x < 0
 			move_and_slide()
+			_clamp_walk_position()
 			return
 	
 	if is_eating_food:
 		velocity = Vector2.ZERO
 		return
 	# ==============================================================
+
+	# ====================【新增：点击位置移动逻辑】====================
+	if is_moving_to_point:
+		var dir_to_point = move_target_position - global_position
+		
+		if dir_to_point.length() <= click_move_arrive_distance:
+			global_position = move_target_position
+			velocity = Vector2.ZERO
+			is_moving_to_point = false
+			change_state(State.IDLE)
+			return
+		else:
+			velocity = dir_to_point.normalized() * move_speed
+			if animator.animation != "walk":
+				animator.play("walk")
+			animator.flip_h = velocity.x < 0
+			move_and_slide()
+			_clamp_walk_position()
+			return
+	# ===============================================================
 
 	state_timer -= delta
 
@@ -377,11 +192,16 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 		spawn_heart()
 		#spawn_hand(event.position)
 		
-		GameManager.intimacy += 1
+		#GameManager.intimacy += 1
 		$AudioStreamPlayer.play()
-		print(GameManager.intimacy)
+		#rint(GameManager.intimacy)
 		# 打断当前行为
 		current_state = State.IDLE
+		
+		# ====================【新增：点到猫本体时取消“去点击点移动”】====================
+		is_moving_to_point = false
+		velocity = Vector2.ZERO
+		# ========================================================================
 		
 		animator.play("picked")
 		await get_tree().create_timer(1).timeout
@@ -397,9 +217,28 @@ func spawn_heart():
 	get_tree().current_scene.add_child(heart)
 	heart.global_position = $HeartPos.global_position
 
+# ====================【新增：点击某个位置后让猫走过去】====================
+func go_to_point(target_pos: Vector2):
+	# 不打断原来的吃饭流程
+	if is_eating_food or is_going_to_eat:
+		return
+	
+	is_moving_to_point = true
+	move_target_position = target_pos
+	
+	# 目标点限制在活动边界内
+	move_target_position.x = clamp(move_target_position.x, walk_min_x, walk_max_x)
+	move_target_position.y = clamp(move_target_position.y, walk_min_y, walk_max_y)
+# ======================================================================
+
 # ====================【保留原吃饭逻辑，不改】====================
 func go_to_eat(target_pos: Vector2):
 	print("收到目标点:", target_pos)
+	
+	# ====================【新增：吃饭时取消普通点击移动】====================
+	is_moving_to_point = false
+	# =================================================================
+	
 	is_going_to_eat = true
 	is_eating_food = false
 	food_target_position = target_pos

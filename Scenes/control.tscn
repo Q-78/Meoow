@@ -7,13 +7,16 @@
 layout_mode = 3
 anchor_right = 21.992
 anchor_bottom = 15.294001
-offset_right = -0.24023438
-offset_bottom = -0.3203125
+offset_left = 1024.0
+offset_top = 1035.0
+offset_right = 1023.75977
+offset_bottom = 1034.6797
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_sjmnu")
 
 [node name="TimeLabel" type="Label" parent="." unique_id=1914531189]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 13.3
@@ -28,6 +31,7 @@ theme_override_fonts/font = ExtResource("2_cgmvo")
 theme_override_font_sizes/font_size = 30
 
 [node name="WeekLabel" type="Label" parent="." unique_id=1678736029]
+visible = false
 layout_mode = 0
 offset_left = 525.0
 offset_top = 392.0
@@ -37,10 +41,11 @@ theme_override_fonts/font = ExtResource("2_cgmvo")
 theme_override_font_sizes/font_size = 30
 
 [node name="DateLabel" type="Label" parent="." unique_id=1773975240]
+visible = false
 layout_mode = 0
 offset_left = 525.0
 offset_top = 355.0
-offset_right = 566.0
-offset_bottom = 385.0
+offset_right = 1768.0
+offset_bottom = 930.0
 theme_override_fonts/font = ExtResource("2_cgmvo")
 theme_override_font_sizes/font_size = 30
