@@ -5,4 +5,5 @@ Build/
 *.apk
 *.aab
 *.tpz
-*.tmp
+*.tmp.DS_Store
+**/.DS_Store

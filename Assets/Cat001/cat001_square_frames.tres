@@ -1,0 +1,60 @@
+[gd_resource type="SpriteFrames" load_steps=17 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Cat/Cat001_sit.png" id="1_sit"]
+[ext_resource type="Texture2D" path="res://Assets/Cat/Cat001_walk.png" id="2_walk"]
+
+[sub_resource type="AtlasTexture" id="sit_0"]
+atlas = ExtResource("1_sit")
+region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="sit_1"]
+atlas = ExtResource("1_sit")
+region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="sit_2"]
+atlas = ExtResource("1_sit")
+region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="sit_3"]
+atlas = ExtResource("1_sit")
+region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="sit_4"]
+atlas = ExtResource("1_sit")
+region = Rect2(128, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="sit_5"]
+atlas = ExtResource("1_sit")
+region = Rect2(160, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="sit_6"]
+atlas = ExtResource("1_sit")
+region = Rect2(192, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="sit_7"]
+atlas = ExtResource("1_sit")
+region = Rect2(224, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="walk_0"]
+atlas = ExtResource("2_walk")
+region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="walk_1"]
+atlas = ExtResource("2_walk")
+region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="walk_2"]
+atlas = ExtResource("2_walk")
+region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="walk_3"]
+atlas = ExtResource("2_walk")
+region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="walk_4"]
+atlas = ExtResource("2_walk")
+region = Rect2(128, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="walk_5"]
+atlas = ExtResource("2_walk")
+region = Rect2(160, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{"duration": 1.0, "texture": SubResource("sit_0")}, {"duration": 1.0, "texture": SubResource("sit_1")}, {"duration": 1.0, "texture": SubResource("sit_2")}, {"duration": 1.0, "texture": SubResource("sit_3")}, {"duration": 1.0, "texture": SubResource("sit_4")}, {"duration": 1.0, "texture": SubResource("sit_5")}, {"duration": 1.0, "texture": SubResource("sit_6")}, {"duration": 1.0, "texture": SubResource("sit_7")}],
+"loop": true,
+"name": &"sit",
+"speed": 5.0
+}, {
+"frames": [{"duration": 1.0, "texture": SubResource("walk_0")}, {"duration": 1.0, "texture": SubResource("walk_1")}, {"duration": 1.0, "texture": SubResource("walk_2")}, {"duration": 1.0, "texture": SubResource("walk_3")}, {"duration": 1.0, "texture": SubResource("walk_4")}, {"duration": 1.0, "texture": SubResource("walk_5")}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
