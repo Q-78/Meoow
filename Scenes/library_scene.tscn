@@ -6,10 +6,24 @@
 [ext_resource type="Texture2D" uid="uid://kdlqsomidlmx" path="res://Assets/物品素材/Pomodoro.png" id="3_hkdju"]
 [ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="4_1btlx"]
 [ext_resource type="Script" uid="uid://kkfb0fc05brb" path="res://Scripts/pomodor.gd" id="4_j7iyf"]
-[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="7_kbtmi"]
+[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="6_ydier"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydier"]
 radius = 53.037724
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ydier"]
+distance = -246.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kbtmi"]
+distance = -80.99997
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d678a"]
+normal = Vector2(0.9999523, 0.00977152)
+distance = -359.12943
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ylyxa"]
+normal = Vector2(0, 1)
+distance = -257.0
 
 [node name="LibraryScene" type="Node2D" unique_id=1601675103]
 script = ExtResource("1_ydier")
@@ -124,9 +138,9 @@ text = "重置"
 [node name="to_map" type="Button" parent="." unique_id=350994365]
 offset_left = -329.0
 offset_top = 527.0
-offset_right = -65.0
-offset_bottom = 604.0
-icon = ExtResource("7_kbtmi")
+offset_right = -239.0
+offset_bottom = 622.0
+icon = ExtResource("6_ydier")
 
 [node name="tomato" type="Area2D" parent="." unique_id=2054603560]
 position = Vector2(-3.0517578e-05, 3.0517578e-05)
@@ -140,5 +154,22 @@ texture = ExtResource("3_hkdju")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tomato" unique_id=1611149929]
 position = Vector2(-182.99998, 251)
 shape = SubResource("CircleShape2D_ydier")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1586580701]
+position = Vector2(1, 382)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=367709230]
+shape = SubResource("WorldBoundaryShape2D_ydier")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=765080069]
+position = Vector2(269, -36)
+rotation = -1.5707964
+shape = SubResource("WorldBoundaryShape2D_kbtmi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=349560722]
+shape = SubResource("WorldBoundaryShape2D_d678a")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1686202713]
+shape = SubResource("WorldBoundaryShape2D_ylyxa")
 
 [connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]

@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://bkip7f8q21vnb" path="res://Scripts/map/map_library.gd" id="5_q0mm3"]
 [ext_resource type="Script" uid="uid://drkqxj67wwrdn" path="res://Scripts/map/map_cafe.gd" id="6_np2xp"]
 [ext_resource type="Script" uid="uid://b5opiqunhscgl" path="res://Scripts/map/map_dashariver.gd" id="7_w7jjh"]
+[ext_resource type="Script" uid="uid://b0g8fshut23y2" path="res://Scripts/map/map_89square.gd" id="8_6q3n4"]
 
 [node name="Map" type="Node2D" unique_id=1782503920]
 script = ExtResource("1_ci6au")
@@ -75,6 +76,16 @@ polygon = PackedVector2Array(402, 502, 428, 502, 428, 506, 431, 506, 431, 514, 4
 
 [node name="Polygon2D" type="Polygon2D" parent="ClickArea/DashaRiver" unique_id=1561741075]
 polygon = PackedVector2Array(402, 502, 428, 502, 428, 506, 430, 505, 431, 513, 434, 515, 435, 521, 436, 521, 437, 555, 435, 555, 435, 564, 432, 564, 432, 570, 428, 570, 428, 572, 402, 573, 402, 570, 398, 570, 398, 564, 395, 564, 395, 554, 392, 554, 392, 521, 395, 521, 395, 511, 398, 511, 398, 506, 402, 505)
+
+[node name="89quare" type="Area2D" parent="ClickArea" unique_id=354885800]
+script = ExtResource("8_6q3n4")
+target_scene_path = "uid://cj6bds54x8bam"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/89quare" unique_id=1463993738]
+polygon = PackedVector2Array(414, 949, 441, 949, 441, 977, 448, 977, 448, 989, 440, 989, 440, 992, 430, 992, 430, 989, 408, 989, 408, 992, 398, 992, 397, 989, 391, 989, 390, 975, 396, 975, 396, 948)
+
+[node name="Polygon2D" type="Polygon2D" parent="ClickArea/89quare" unique_id=1172446695]
+polygon = PackedVector2Array(397, 947, 441, 947, 441, 976, 448, 976, 448, 989, 442, 988, 441, 992, 430, 993, 430, 990, 409, 990, 409, 993, 398, 993, 398, 990, 391, 990, 391, 975, 396, 974)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1398896364]
 position = Vector2(382.00003, 749.00006)

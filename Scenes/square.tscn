@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dv16oh6wm26yo" path="res://Scripts/square.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://br25qiptc7kpx" path="res://Assets/Background/square.jpg" id="2_bg"]
-[ext_resource type="SpriteFrames" path="res://Assets/Cat001/cat001_square_frames.tres" id="3_cat001_frames"]
+[ext_resource type="SpriteFrames" uid="uid://cjxnfpnm6ig3a" path="res://Assets/Cat001/cat001_square_frames.tres" id="3_cat001_frames"]
 [ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="4_vkl7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cat_click"]
