@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://bpa4riapiab6k" path="res://Scripts/cat_001.gd" id="1_4eolu"]
 [ext_resource type="Texture2D" uid="uid://c23mow3tvl0wh" path="res://Assets/Cat/Cat001_sit.png" id="1_7ufck"]
 [ext_resource type="Texture2D" uid="uid://dbem7lyppqcox" path="res://Assets/Cat/Cat001_picked.png" id="2_o44ds"]
-[ext_resource type="PackedScene" uid="uid://cjt7p56ahe86v" path="res://Scenes/hand.tscn" id="2_oow8u"]
-[ext_resource type="PackedScene" uid="uid://ckcmql4vtlt1s" path="res://Scenes/Heart.tscn" id="3_axb15"]
 [ext_resource type="Texture2D" uid="uid://72yeg7b3xxjb" path="res://Assets/Cat001/Cat001_eat.png" id="4_5d3ve"]
 [ext_resource type="Texture2D" uid="uid://1at1ok5mekyj" path="res://Assets/Cat/Cat001_sleep.png" id="4_mn4ah"]
 [ext_resource type="Texture2D" uid="uid://chrllcdbfh6or" path="res://Assets/Cat001/Cat001_jump.png" id="5_kli67"]
 [ext_resource type="Texture2D" uid="uid://cgn8kpulml0m6" path="res://Assets/Cat/Cat001_upanddowm.png" id="5_oow8u"]
 [ext_resource type="Texture2D" uid="uid://b2v18o03iici1" path="res://Assets/Cat/Cat001_walk.png" id="6_axb15"]
 [ext_resource type="Texture2D" uid="uid://dffakaul72ayi" path="res://Assets/Cat001/Cat001_rool.png" id="6_gfqaa"]
-[ext_resource type="AudioStream" uid="uid://d2phdg4twhjof" path="res://Assets/sounds/S1.mp3" id="7_mn4ah"]
+[ext_resource type="AudioStream" uid="uid://d2phdg4twhjof" path="res://Assets/sounds/some sounds/S1.mp3" id="7_mn4ah"]
+[ext_resource type="AudioStream" uid="uid://ceubrf4l7arp4" path="res://Assets/sounds/喂食音效/drink.mp3" id="13_h51d3"]
+[ext_resource type="AudioStream" uid="uid://dkqhpcxs1xgkw" path="res://Assets/sounds/喂食音效/chew.mp3" id="14_hnaj6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w30ta"]
 atlas = ExtResource("4_5d3ve")
@@ -336,8 +336,6 @@ radius = 201.15913
 input_pickable = true
 script = ExtResource("1_4eolu")
 animator = NodePath("AnimatedSprite2D")
-hand_scene = ExtResource("2_oow8u")
-heart_scene = ExtResource("3_axb15")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=127424701]
 position = Vector2(19, -21)
@@ -355,5 +353,11 @@ stream = ExtResource("7_mn4ah")
 
 [node name="HeartPos" type="Marker2D" parent="." unique_id=1259834657]
 position = Vector2(-2, -235)
+
+[node name="drink" type="AudioStreamPlayer" parent="." unique_id=617713962]
+stream = ExtResource("13_h51d3")
+
+[node name="eat" type="AudioStreamPlayer" parent="." unique_id=1754641098]
+stream = ExtResource("14_hnaj6")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

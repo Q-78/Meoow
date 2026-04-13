@@ -14,4 +14,5 @@ func _notification(what: int) -> void:
 func _on_to_map_pressed() -> void:
 	var next_scene := "res://Scenes/map.tscn"
 	SceneMemory.set_last_scene(next_scene)
-	get_tree().change_scene_to_file(next_scene)
+	PawTransition.transition_to_scene(next_scene)
+	#get_tree().change_scene_to_file(next_scene)

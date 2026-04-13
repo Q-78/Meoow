@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="2_6xle2"]
 [ext_resource type="Texture2D" uid="uid://bnj5olegjmlpv" path="res://Assets/playground/Main.png" id="2_opmy1"]
 [ext_resource type="Texture2D" uid="uid://6hv56jxf4max" path="res://Assets/playground/Sky.png" id="2_wqftc"]
+[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="5_ogptx"]
 [ext_resource type="PackedScene" uid="uid://cs53asnujluht" path="res://Scenes/control.tscn" id="6_vl51c"]
-[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="7_opmy1"]
 [ext_resource type="Script" uid="uid://dfws5yoriywgb" path="res://Scripts/cloud_layer.gd" id="8_73bjl"]
 [ext_resource type="Texture2D" uid="uid://hycujp7fwsqc" path="res://Assets/playground/Cloud1.png" id="9_v5c3b"]
 [ext_resource type="Texture2D" uid="uid://4q8ny2iib4e4" path="res://Assets/playground/Cloud2.png" id="10_xfd6h"]
@@ -18,10 +18,12 @@
 [ext_resource type="Texture2D" uid="uid://dvpj4yevy8s26" path="res://Assets/物品素材/Bowl_empty.png" id="15_ubr2o"]
 [ext_resource type="Texture2D" uid="uid://biogw6uhg2l0h" path="res://Assets/物品素材/Food.png" id="16_ubr2o"]
 [ext_resource type="Texture2D" uid="uid://qjmg118r0apd" path="res://Assets/物品素材/Bowl_full.png" id="17_ogptx"]
+[ext_resource type="Texture2D" uid="uid://dqym8ki1flte6" path="res://Assets/物品素材/Bowl_water.png" id="18_wc4mg"]
+[ext_resource type="Texture2D" uid="uid://d3pbprtp6570k" path="res://Assets/物品素材/Water.png" id="20_i25ng"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6xle2"]
 normal = Vector2(-0.0005738541, -0.9999999)
-distance = -1117.9967
+distance = -612.9995
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ogptx"]
 distance = -441.0
@@ -51,10 +53,14 @@ zoom = Vector2(0.795, 0.795)
 [node name="cat001" parent="." unique_id=362636703 instance=ExtResource("2_6xle2")]
 position = Vector2(145, 405.00003)
 scale = Vector2(0.3, 0.3)
+hand_scene = null
+heart_scene = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1904280510]
+position = Vector2(-1, 437)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=652386042]
+position = Vector2(-6, -111)
 scale = Vector2(9.410997, 1)
 shape = SubResource("WorldBoundaryShape2D_6xle2")
 
@@ -63,16 +69,18 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_ogptx")
 
 [node name="to_map" type="Button" parent="." unique_id=543565815]
-offset_left = -435.0
-offset_top = 851.0
-offset_right = -171.0
-offset_bottom = 928.0
-icon = ExtResource("7_opmy1")
+offset_left = -439.0
+offset_top = 842.0
+offset_right = -349.0
+offset_bottom = 937.0
+icon = ExtResource("5_ogptx")
 
 [node name="Control" parent="." unique_id=1267235062 instance=ExtResource("6_vl51c")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
 offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 1
@@ -119,7 +127,8 @@ texture = ExtResource("14_xwjr1")
 [node name="bowl" type="CharacterBody2D" parent="." unique_id=1883633250]
 script = ExtResource("15_2f6ep")
 bowl_empty_texture = ExtResource("15_ubr2o")
-bowl_full_texture = ExtResource("17_ogptx")
+bowl_full_food_texture = ExtResource("17_ogptx")
+bowl_full_water_texture = ExtResource("18_wc4mg")
 
 [node name="Bowl" type="Sprite2D" parent="bowl" unique_id=483583610]
 position = Vector2(-249, 681)
@@ -135,6 +144,11 @@ position = Vector2(-250.00002, 599)
 scale = Vector2(3.275391, 3.275391)
 texture = ExtResource("16_ubr2o")
 
+[node name="water" type="Sprite2D" parent="bowl" unique_id=1575738746]
+position = Vector2(-249, 599)
+scale = Vector2(3.1250002, 3.1250002)
+texture = ExtResource("20_i25ng")
+
 [node name="Marker2D" type="Marker2D" parent="bowl" unique_id=1397332639]
 position = Vector2(-241, 614)
 scale = Vector2(0.3, 0.3)
@@ -146,5 +160,14 @@ offset_right = 105.77419
 offset_bottom = 927.0
 theme_override_font_sizes/font_size = 30
 text = "喂食"
+
+[node name="WaterButton" type="Button" parent="." unique_id=125777720]
+offset_left = 155.0
+offset_top = 851.0
+offset_right = 251.7742
+offset_bottom = 926.0
+theme_override_font_sizes/font_size = 30
+text = "喂水
+"
 
 [connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]

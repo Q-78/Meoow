@@ -428,5 +428,7 @@ func _on_cat_click_input_event(_viewport: Node, event: InputEvent, _shape_idx: i
 		get_tree().change_scene_to_file("res://Scenes/square_zoom.tscn")
 
 func _on_to_map_pressed() -> void:
+	var next_scene := "res://Scenes/map.tscn"
 	GameManager.clear_square_butterfly_state()
-	get_tree().change_scene_to_file("res://Scenes/map.tscn")
+	PawTransition.transition_to_scene(next_scene)
+	#get_tree().change_scene_to_file("res://Scenes/map.tscn")

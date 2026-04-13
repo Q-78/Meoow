@@ -2,8 +2,23 @@
 
 [ext_resource type="Script" uid="uid://ixgn61hta1ug" path="res://Scripts/scenes_scripts/dasha_river.gd" id="1_cxar7"]
 [ext_resource type="Texture2D" uid="uid://c0dn8hu7j67c4" path="res://Assets/Background/微信图片_20260324121355_1001_2891.jpg" id="1_gb5ch"]
-[ext_resource type="Texture2D" uid="uid://bn5186k2gosxy" path="res://Assets/物品素材/Botton.png" id="2_4ar4n"]
+[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="3_hxtlg"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="4_hxtlg"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hxtlg"]
+normal = Vector2(-0.12484339, 0.9921764)
+distance = -178.8546
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_26cup"]
+normal = Vector2(-0.99990356, 0.01388755)
+distance = -359.84027
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0q2i6"]
+normal = Vector2(0.99997705, 0.0067795054)
+distance = -355.02
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fuimg"]
+distance = -252.0
 
 [node name="Dasha_River" type="Node2D" unique_id=1827151699]
 script = ExtResource("1_cxar7")
@@ -14,14 +29,31 @@ scale = Vector2(0.56054693, 0.56054693)
 texture = ExtResource("1_gb5ch")
 
 [node name="to_map" type="Button" parent="." unique_id=304929040]
-offset_left = 17.0
-offset_top = 1186.0
-offset_right = 281.0
-offset_bottom = 1263.0
-icon = ExtResource("2_4ar4n")
+offset_left = 14.0
+offset_top = 1178.0
+offset_right = 104.0
+offset_bottom = 1273.0
+icon = ExtResource("3_hxtlg")
 
 [node name="cat001" parent="." unique_id=362636703 instance=ExtResource("4_hxtlg")]
-position = Vector2(49, 896)
+position = Vector2(202, 896)
 scale = Vector2(0.3, 0.3)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=186833236]
+position = Vector2(357, 1022)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2092935754]
+position = Vector2(-10, 6)
+shape = SubResource("WorldBoundaryShape2D_hxtlg")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2063093893]
+shape = SubResource("WorldBoundaryShape2D_26cup")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1426891064]
+rotation = -0.0065244893
+shape = SubResource("WorldBoundaryShape2D_0q2i6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1048262977]
+shape = SubResource("WorldBoundaryShape2D_fuimg")
 
 [connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://chfdlub3p2xmu"]
+
+[ext_resource type="Script" uid="uid://78nka7tp4s56" path="res://Scripts/map.gd" id="1_ci6au"]
+[ext_resource type="Texture2D" uid="uid://bbds8cdoigxo5" path="res://Assets/Background/Map.png" id="2_p3ir5"]
+[ext_resource type="Script" uid="uid://du3auo8yei5ul" path="res://Scripts/map_playground.gd" id="3_myvm1"]
+
+[node name="Map" type="Node2D" unique_id=1782503920]
+script = ExtResource("1_ci6au")
+
+[node name="MapSprite" type="Sprite2D" parent="." unique_id=2110478501]
+position = Vector2(378, 796.00006)
+rotation = -0.0028079802
+scale = Vector2(3.2877934, 3.1138225)
+texture = ExtResource("2_p3ir5")
+
+[node name="ClickArea" type="Node2D" parent="." unique_id=1170765995]
+
+[node name="playground" type="Area2D" parent="ClickArea" unique_id=1336433054]
+rotation = 0.001846336
+script = ExtResource("3_myvm1")
+target_scene_path = "uid://v6cj0v5fdvix"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/playground" unique_id=723190997]
+position = Vector2(395.05878, 468.1963)
+rotation = 1.5707964
+polygon = PackedVector2Array(290, 291, 369, 293, 387, 310, 387, 350, 368, 369, 264, 369, 243, 333, 257, 293)
+
+[node name="Polygon2D" type="Polygon2D" parent="ClickArea/playground" unique_id=1217377811]
+position = Vector2(395.05878, 468.1963)
+rotation = 1.5707964
+color = Color(1, 0.3529412, 1, 1)
+polygon = PackedVector2Array(284, 293, 370, 294, 390, 310, 392, 351, 369, 369, 266, 368, 250, 358, 242, 337, 248, 311, 258, 300)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1398896364]
+position = Vector2(382.00003, 749.00006)
+rotation = -2.0150418
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true

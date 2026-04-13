@@ -3,6 +3,10 @@
 [ext_resource type="Script" uid="uid://s1hrft63d731" path="res://Scripts/scene_transition.gd" id="1_0f3qh"]
 [ext_resource type="Texture2D" uid="uid://sjaondc6k0xn" path="res://Assets/paw.png" id="2_4gl7c"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_4gl7c"]
+normal = Vector2(0.9999523, 0.00977152)
+distance = -359.12943
+
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1294319672]
 script = ExtResource("1_0f3qh")
 paw_texture = ExtResource("2_4gl7c")
@@ -32,3 +36,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Prints" type="Node2D" parent="." unique_id=680027832]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=232182210]
+shape = SubResource("WorldBoundaryShape2D_4gl7c")

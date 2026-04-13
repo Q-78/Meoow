@@ -6,23 +6,6 @@
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1294319672]
 script = ExtResource("1_0f3qh")
 paw_texture = ExtResource("2_4gl7c")
-columns = null
-rows = null
-paw_fill_ratio = null
-wave_step_delay = null
-intra_wave_jitter = null
-stamp_in_time = null
-stamp_settle_time = null
-stamp_overshoot = null
-paw_visible_duration = null
-paw_fade_out_time = null
-angle_left = null
-angle_right = null
-angle_jitter = null
-pos_jitter = null
-use_bg = null
-bg_color = null
-bg_fade_out_time = null
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=366208924]
 anchors_preset = 15
