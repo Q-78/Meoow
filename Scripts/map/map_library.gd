@@ -18,7 +18,7 @@ func _input_event(viewport, event, shape_idx) -> void:
 	and event.pressed \
 	and event.button_index == MOUSE_BUTTON_LEFT:
 		if target_scene_path != "":
-			get_tree().change_scene_to_file(target_scene_path)
+			PawTransition.transition_to_scene(target_scene_path)
 
 func _on_mouse_entered() -> void:
 	if highlight != null:

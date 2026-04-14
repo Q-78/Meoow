@@ -1,0 +1,227 @@
+[gd_scene format=3 uid="uid://b43p8w0ipwa7i"]
+
+[ext_resource type="Texture2D" uid="uid://dcrntb5w7qb24" path="res://Assets/Background/荔枝林.png" id="1_2wfmw"]
+[ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="1_rco24"]
+[ext_resource type="Script" uid="uid://cniuhcj37c1nu" path="res://Scripts/lychee_grove.gd" id="1_u3be5"]
+[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="4_u0xj7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wfmw"]
+content_margin_left = 18.0
+content_margin_top = 16.0
+content_margin_right = 18.0
+content_margin_bottom = 16.0
+bg_color = Color(1, 1, 1, 0.90200007)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.92947316, 0.92947316, 0.9309246, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2wfmw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3be5"]
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjtpj"]
+bg_color = Color(0.56102586, 0.8612978, 0.7674041, 1)
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63px8"]
+bg_color = Color(0.14490768, 0.90433717, 0.8548126, 1)
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wyqkg"]
+bg_color = Color(0.38435107, 0.89067453, 0.80010706, 1)
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_osg1m"]
+bg_color = Color(0.7373294, 0.735357, 0.735357, 1)
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u3be5"]
+distance = -157.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u0xj7"]
+normal = Vector2(1, 0)
+distance = -334.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_pjtpj"]
+distance = 6.3640137
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_63px8"]
+normal = Vector2(0.77395725, 0.6332378)
+distance = -142.47852
+
+[node name="Lychee grove" type="Control" unique_id=146409357]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u3be5")
+
+[node name="Background" type="TextureRect" parent="." unique_id=2116827042]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 723.0
+offset_bottom = 1438.0
+mouse_filter = 2
+texture = ExtResource("1_2wfmw")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="CharacterLayer" type="Node2D" parent="." unique_id=105363222]
+
+[node name="cat001" parent="CharacterLayer" unique_id=362636703 instance=ExtResource("1_rco24")]
+position = Vector2(140, 893)
+scale = Vector2(0.24434665, 0.24434665)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1378818116]
+
+[node name="SafeArea" type="MarginContainer" parent="UI" unique_id=761401673]
+anchors_preset = -1
+anchor_left = 0.044000003
+anchor_top = 0.78200006
+anchor_right = 0.95000005
+anchor_bottom = 1.0990001
+offset_left = -31.680002
+offset_top = -5.960083
+offset_right = 34.99994
+offset_bottom = -113.72009
+theme_override_constants/margin_left = 36
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 36
+theme_override_constants/margin_bottom = 24
+
+[node name="MainVBox" type="VBoxContainer" parent="UI/SafeArea" unique_id=468138374]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TopSpacer" type="Control" parent="UI/SafeArea/MainVBox" unique_id=663078460]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ChatPanel" type="PanelContainer" parent="UI/SafeArea/MainVBox" unique_id=920106859]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2wfmw")
+
+[node name="ChatVBox" type="VBoxContainer" parent="UI/SafeArea/MainVBox/ChatPanel" unique_id=818432940]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NameLabel" type="Label" parent="UI/SafeArea/MainVBox/ChatPanel/ChatVBox" unique_id=1339110083]
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.50638646, 0.50638646, 0.50638646, 1)
+theme_override_font_sizes/font_size = 18
+text = "芝麻糊"
+vertical_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="UI/SafeArea/MainVBox/ChatPanel/ChatVBox" unique_id=226522518]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="MessageLabel" type="RichTextLabel" parent="UI/SafeArea/MainVBox/ChatPanel/ChatVBox/Scroll" unique_id=1103414543]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.69434154, 0.5168535, 0.4335461, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2wfmw")
+bbcode_enabled = true
+text = "你怎么才回来呀！今天过得怎么样？"
+
+[node name="InputRow" type="HBoxContainer" parent="UI/SafeArea/MainVBox/ChatPanel/ChatVBox" unique_id=1850609008]
+layout_mode = 2
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="UserInput" type="LineEdit" parent="UI/SafeArea/MainVBox/ChatPanel/ChatVBox/InputRow" unique_id=170783987]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.25223535, 0.49390185, 0.6194855, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_u3be5")
+theme_override_styles/focus = SubResource("StyleBoxFlat_u3be5")
+placeholder_text = "和我说说今天发生了什么..."
+max_length = 200
+clear_button_enabled = true
+
+[node name="SendButton" type="Button" parent="UI/SafeArea/MainVBox/ChatPanel/ChatVBox/InputRow" unique_id=913608908]
+custom_minimum_size = Vector2(66, 42)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96481246, 0.84074193, 0.84137464, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_pjtpj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_63px8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wyqkg")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_osg1m")
+text = "发送
+"
+
+[node name="BottomGap" type="Control" parent="UI/SafeArea/MainVBox" unique_id=1388370109]
+visible = false
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1878353774]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1694067860]
+position = Vector2(339, 859)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=567490675]
+shape = SubResource("WorldBoundaryShape2D_u3be5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1865494076]
+shape = SubResource("WorldBoundaryShape2D_u0xj7")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=182041874]
+position = Vector2(26, 21)
+rotation = -0.7853982
+shape = SubResource("WorldBoundaryShape2D_pjtpj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1613960138]
+position = Vector2(-27, 20)
+rotation = 0.2617994
+shape = SubResource("WorldBoundaryShape2D_63px8")
+
+[node name="to_map" type="Button" parent="." unique_id=1781295605]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 39.0
+offset_right = 126.0
+offset_bottom = 134.0
+icon = ExtResource("4_u0xj7")
+
+[connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]
