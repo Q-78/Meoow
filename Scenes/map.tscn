@@ -39,7 +39,7 @@ polygon = PackedVector2Array(284, 293, 370, 294, 390, 310, 392, 351, 369, 369, 2
 
 [node name="tree_hole" type="Area2D" parent="ClickArea" unique_id=2051609609]
 script = ExtResource("4_myvm1")
-target_scene_path = "uid://bjmjb6i3y1cl"
+target_scene_path = "uid://b43p8w0ipwa7i"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ClickArea/tree_hole" unique_id=779310249]
 polygon = PackedVector2Array(360, 780, 377, 784, 393, 790, 416, 808, 415, 828, 395, 846, 379, 844, 362, 842, 351, 849, 338, 848, 333, 842, 333, 838, 327, 838, 325, 831, 316, 828, 320, 823, 314, 816, 312, 806, 321, 797, 328, 800, 331, 791, 339, 787, 343, 780, 350, 780)

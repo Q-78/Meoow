@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://btciho027jr8k" path="res://Scripts/scenes_scripts/playground.gd" id="1_qyfof"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="2_6xle2"]
-[ext_resource type="Texture2D" uid="uid://bnj5olegjmlpv" path="res://Assets/playground/Main.png" id="2_opmy1"]
 [ext_resource type="Texture2D" uid="uid://6hv56jxf4max" path="res://Assets/playground/Sky.png" id="2_wqftc"]
+[ext_resource type="Texture2D" uid="uid://co3rono675hel" path="res://Assets/playground/background.png" id="3_wc4mg"]
 [ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="5_ogptx"]
 [ext_resource type="PackedScene" uid="uid://cs53asnujluht" path="res://Scenes/control.tscn" id="6_vl51c"]
 [ext_resource type="Script" uid="uid://dfws5yoriywgb" path="res://Scripts/cloud_layer.gd" id="8_73bjl"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://j3kqnq0nocqv" path="res://Assets/playground/Cloud5.png" id="11_xwjr1"]
 [ext_resource type="Texture2D" uid="uid://c5d2rbe4quvp7" path="res://Assets/playground/Cloud4.png" id="12_ubr2o"]
 [ext_resource type="Texture2D" uid="uid://dele4r17cuxug" path="res://Assets/playground/Cloud6.png" id="14_2f6ep"]
+[ext_resource type="Script" uid="uid://cuksgrqb0ro47" path="res://Scripts/sun.gd" id="14_i25ng"]
 [ext_resource type="Texture2D" uid="uid://b2q4dqxfcpd6l" path="res://Assets/playground/Sun.png" id="14_xwjr1"]
 [ext_resource type="Script" uid="uid://d10xv6ari4o4f" path="res://Scripts/bowl.gd" id="15_2f6ep"]
 [ext_resource type="Texture2D" uid="uid://dvpj4yevy8s26" path="res://Assets/物品素材/Bowl_empty.png" id="15_ubr2o"]
@@ -41,10 +42,9 @@ texture = ExtResource("2_wqftc")
 metadata/_edit_lock_ = true
 
 [node name="background" type="Sprite2D" parent="." unique_id=1727286414]
-position = Vector2(-9, 260)
-scale = Vector2(5.621875, 5.621875)
-texture = ExtResource("2_opmy1")
-metadata/_edit_lock_ = true
+position = Vector2(-12.649979, 237.70004)
+scale = Vector2(3.5128903, 3.5128903)
+texture = ExtResource("3_wc4mg")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=61084338]
 position = Vector2(-8, 137)
@@ -53,8 +53,6 @@ zoom = Vector2(0.795, 0.795)
 [node name="cat001" parent="." unique_id=362636703 instance=ExtResource("2_6xle2")]
 position = Vector2(145, 405.00003)
 scale = Vector2(0.3, 0.3)
-hand_scene = null
-heart_scene = null
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1904280510]
 position = Vector2(-1, 437)
@@ -119,7 +117,10 @@ position = Vector2(295, -539)
 scale = Vector2(1.575, 1.575)
 texture = ExtResource("14_2f6ep")
 
-[node name="sun" type="Sprite2D" parent="CloudLayer" unique_id=2146603499]
+[node name="Sun" type="Node2D" parent="." unique_id=1393953212]
+script = ExtResource("14_i25ng")
+
+[node name="sun" type="Sprite2D" parent="Sun" unique_id=2146603499]
 position = Vector2(-341.99994, -554.99994)
 scale = Vector2(2.71875, 2.71875)
 texture = ExtResource("14_xwjr1")
@@ -145,8 +146,8 @@ scale = Vector2(3.275391, 3.275391)
 texture = ExtResource("16_ubr2o")
 
 [node name="water" type="Sprite2D" parent="bowl" unique_id=1575738746]
-position = Vector2(-249, 599)
-scale = Vector2(3.1250002, 3.1250002)
+position = Vector2(-252.00002, 594)
+scale = Vector2(3.4375002, 3.4375002)
 texture = ExtResource("20_i25ng")
 
 [node name="Marker2D" type="Marker2D" parent="bowl" unique_id=1397332639]

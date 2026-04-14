@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed := 10   # 云移动速度
+@export var speed := 5   # 太阳速度
 
 func _process(delta):
 	for cloud in get_children():
