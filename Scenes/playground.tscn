@@ -67,10 +67,10 @@ rotation = -1.5707964
 shape = SubResource("WorldBoundaryShape2D_ogptx")
 
 [node name="to_map" type="Button" parent="." unique_id=543565815]
-offset_left = -439.0
-offset_top = 842.0
-offset_right = -349.0
-offset_bottom = 937.0
+offset_left = -441.0
+offset_top = -652.0
+offset_right = -351.0
+offset_bottom = -557.0
 icon = ExtResource("5_ogptx")
 
 [node name="Control" parent="." unique_id=1267235062 instance=ExtResource("6_vl51c")]
