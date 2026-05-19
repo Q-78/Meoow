@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ixgn61hta1ug" path="res://Scripts/scenes_scripts/dasha_river.gd" id="1_cxar7"]
 [ext_resource type="Texture2D" uid="uid://c0dn8hu7j67c4" path="res://Assets/Background/微信图片_20260324121355_1001_2891.jpg" id="1_gb5ch"]
-[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="3_hxtlg"]
+[ext_resource type="Texture2D" uid="uid://c5s1fcglr0ob1" path="res://Assets/back.png" id="3_hxtlg"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="4_hxtlg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hxtlg"]
@@ -29,11 +29,13 @@ scale = Vector2(0.56054693, 0.56054693)
 texture = ExtResource("1_gb5ch")
 
 [node name="to_map" type="Button" parent="." unique_id=304929040]
-offset_left = 14.0
-offset_top = 1178.0
-offset_right = 104.0
+offset_left = 3.0
+offset_top = 1149.5
+offset_right = 120.0
 offset_bottom = 1273.0
 icon = ExtResource("3_hxtlg")
+flat = true
+expand_icon = true
 
 [node name="cat001" parent="." unique_id=362636703 instance=ExtResource("4_hxtlg")]
 position = Vector2(202, 896)

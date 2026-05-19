@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dv16oh6wm26yo" path="res://Scripts/square.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://br25qiptc7kpx" path="res://Assets/Background/square.jpg" id="2_bg"]
 [ext_resource type="SpriteFrames" uid="uid://cjxnfpnm6ig3a" path="res://Assets/Cat001/cat001_square_frames.tres" id="3_cat001_frames"]
-[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="4_vkl7y"]
+[ext_resource type="Texture2D" uid="uid://c5s1fcglr0ob1" path="res://Assets/back.png" id="4_vkl7y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cat_click"]
 size = Vector2(220, 220)
@@ -28,10 +28,13 @@ sprite_frames = ExtResource("3_cat001_frames")
 animation = &"sit"
 
 [node name="to_map" type="Button" parent="." unique_id=1449274729]
-offset_left = 11.0
-offset_top = 34.0
-offset_right = 101.0
-offset_bottom = 129.0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 103.0
+offset_bottom = 96.0
+accessibility_live = 1
 icon = ExtResource("4_vkl7y")
+flat = true
+expand_icon = true
 
 [connection signal="input_event" from="CatClick" to="." method="_on_cat_click_input_event"]

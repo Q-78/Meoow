@@ -3,7 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dcrntb5w7qb24" path="res://Assets/Background/荔枝林.png" id="1_2wfmw"]
 [ext_resource type="PackedScene" uid="uid://d0ke2lf6bd4e1" path="res://Scenes/cat_001.tscn" id="1_rco24"]
 [ext_resource type="Script" uid="uid://cniuhcj37c1nu" path="res://Scripts/lychee_grove.gd" id="1_u3be5"]
-[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="4_u0xj7"]
+[ext_resource type="Texture2D" uid="uid://b4alhh8rekuef" path="res://Assets/图片背景透明化.png" id="4_pjtpj"]
+[ext_resource type="Texture2D" uid="uid://c5s1fcglr0ob1" path="res://Assets/back.png" id="4_u0xj7"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2wfmw"]
 content_margin_left = 18.0
@@ -117,7 +118,7 @@ anchor_top = 0.78200006
 anchor_right = 0.95000005
 anchor_bottom = 1.0990001
 offset_left = -31.680002
-offset_top = -5.960083
+offset_top = -231.96008
 offset_right = 34.99994
 offset_bottom = -113.72009
 theme_override_constants/margin_left = 36
@@ -195,9 +196,43 @@ visible = false
 custom_minimum_size = Vector2(0, 8)
 layout_mode = 2
 
+[node name="HelpButton" type="Button" parent="UI" unique_id=990338789]
+offset_left = 624.0
+offset_right = 2680.0
+offset_bottom = 2056.0
+scale = Vector2(0.046972264, 0.04683551)
+icon = ExtResource("4_pjtpj")
+flat = true
+
+[node name="HelpPanel" type="Panel" parent="UI" unique_id=710772070]
+offset_left = 107.0
+offset_top = 172.0
+offset_right = 624.0
+offset_bottom = 488.0
+
+[node name="HelpText" type="RichTextLabel" parent="UI/HelpPanel" unique_id=1194388556]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.003
+anchor_bottom = 1.0270001
+offset_left = 21.0
+offset_top = 3.824
+offset_right = -1.8870239
+offset_bottom = -4.5183105
+
+[node name="CloseButton" type="Button" parent="UI/HelpPanel" unique_id=237051995]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 4.0000076
+offset_right = 1712.0
+offset_bottom = 1266.0
+scale = Vector2(0.05, 0.05)
+flat = true
+
 [node name="HTTPRequest" type="HTTPRequest" parent="." unique_id=1878353774]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1694067860]
+visible = false
 position = Vector2(339, 859)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=567490675]
@@ -218,10 +253,11 @@ shape = SubResource("WorldBoundaryShape2D_63px8")
 
 [node name="to_map" type="Button" parent="." unique_id=1781295605]
 layout_mode = 0
-offset_left = 36.0
-offset_top = 39.0
-offset_right = 126.0
-offset_bottom = 134.0
+offset_left = 4.0
+offset_right = 94.0
+offset_bottom = 95.0
 icon = ExtResource("4_u0xj7")
+flat = true
+expand_icon = true
 
 [connection signal="pressed" from="to_map" to="." method="_on_to_map_pressed"]
