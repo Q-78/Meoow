@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://kdlqsomidlmx" path="res://Assets/物品素材/Pomodoro.png" id="3_hkdju"]
 [ext_resource type="FontFile" uid="uid://bgof6pil2kt5" path="res://Assets/Uranus_Pixel_11Px.ttf" id="4_1btlx"]
 [ext_resource type="Script" uid="uid://kkfb0fc05brb" path="res://Scripts/pomodor.gd" id="4_j7iyf"]
-[ext_resource type="Texture2D" uid="uid://mc7yg3x65v5e" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return.png" id="6_ydier"]
+[ext_resource type="Texture2D" uid="uid://c5s1fcglr0ob1" path="res://Assets/back.png" id="6_ydier"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ydier"]
 radius = 53.037724
@@ -23,7 +23,7 @@ distance = -359.12943
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ylyxa"]
 normal = Vector2(0, 1)
-distance = -257.0
+distance = -154.0
 
 [node name="LibraryScene" type="Node2D" unique_id=1601675103]
 script = ExtResource("1_ydier")
@@ -36,7 +36,7 @@ texture = ExtResource("1_qoy0t")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=932444930]
 
 [node name="cat001" parent="." unique_id=362636703 instance=ExtResource("2_061c0")]
-position = Vector2(95, 188)
+position = Vector2(99, 389)
 scale = Vector2(0.3, 0.3)
 
 [node name="PomodoroUI" type="Control" parent="." unique_id=1091361726]
@@ -55,8 +55,6 @@ script = ExtResource("4_j7iyf")
 [node name="TimeLabel" type="Label" parent="PomodoroUI" unique_id=279460329]
 layout_mode = 1
 anchors_preset = -1
-anchor_right = 0.63900006
-anchor_bottom = 0.39100003
 offset_left = 355.0
 offset_top = 696.0
 offset_right = 510.0
@@ -136,11 +134,13 @@ text = "重置"
 [node name="Timer" type="Timer" parent="PomodoroUI" unique_id=582652145]
 
 [node name="to_map" type="Button" parent="." unique_id=350994365]
-offset_left = -329.0
-offset_top = 527.0
-offset_right = -239.0
-offset_bottom = 622.0
+offset_left = -358.0
+offset_top = 514.0
+offset_right = -234.0
+offset_bottom = 625.0
 icon = ExtResource("6_ydier")
+flat = true
+expand_icon = true
 
 [node name="tomato" type="Area2D" parent="." unique_id=2054603560]
 position = Vector2(-3.0517578e-05, 3.0517578e-05)

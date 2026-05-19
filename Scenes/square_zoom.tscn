@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bjt28t31whh10" path="res://Assets/Square/Bigcat001_sit.png" id="3_sit"]
 [ext_resource type="Texture2D" uid="uid://bo3neoxl7rgfo" path="res://Assets/Square/Bigcat001_happy.png" id="4_happy"]
 [ext_resource type="Texture2D" uid="uid://46gyo2bf0gvh" path="res://Assets/Square/Bigcat001_angry.png" id="5_angry"]
-[ext_resource type="Texture2D" uid="uid://cpwxrc1nvu3n0" path="res://Assets/外部素材1/Assets/Menu Buttons/Clear Menu Buttons/Buttons-return2.png" id="6_3webu"]
+[ext_resource type="Texture2D" uid="uid://c5s1fcglr0ob1" path="res://Assets/back.png" id="6_3webu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_angry_0"]
 atlas = ExtResource("5_angry")
@@ -169,10 +169,11 @@ flat = true
 [node name="back" type="Button" parent="." unique_id=30129838]
 offset_left = 21.0
 offset_top = 27.0
-offset_right = 112.0
-offset_bottom = 122.0
+offset_right = 147.0
+offset_bottom = 158.53847
 icon = ExtResource("6_3webu")
 flat = true
+expand_icon = true
 
 [connection signal="pressed" from="HeadButton" to="." method="_on_head_pressed"]
 [connection signal="pressed" from="ChinButton" to="." method="_on_chin_pressed"]
